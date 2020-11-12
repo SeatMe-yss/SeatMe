@@ -5,94 +5,81 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CDF3F8"
+    android:background="@drawable/seatme_background"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".ui.login.LoginActivity">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="229dp"
-        android:layout_height="69dp"
-        android:text="ההזמנות שלי"
-        android:textSize="18sp"
-        app:backgroundTint="#00BCD4"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="137dp"
+        android:layout_height="104dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.746" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/seatme_logo" />
+
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
+        android:text="ההזמנות שלי"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.549" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="229dp"
-        android:layout_height="69dp"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
         android:text="דירוג המסעדה"
-        android:textSize="18sp"
-        app:backgroundTint="#00BCD4"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.584" />
+        app:layout_constraintVertical_bias="0.461" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="229dp"
-        android:layout_height="69dp"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
         android:text="צפייה בתפריט"
-        android:textSize="18sp"
-        app:backgroundTint="#00BCD4"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.444" />
-
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="64dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
-        tools:layout_editor_absoluteX="206dp" />
+        app:layout_constraintVertical_bias="0.374" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="229dp"
-        android:layout_height="69dp"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
         android:text="הזמנת מקום"
-        android:textSize="18sp"
-        app:backgroundTint="#00BCD4"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="128dp"
-        android:layout_height="67dp"
-        android:text="שלום יוזר"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.911"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.285" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -142,13 +129,18 @@
 
     <Spinner
         android:id="@+id/spinner3"
-        android:layout_width="229dp"
-        android:layout_height="32dp"
-        android:background="#955C5C"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
         android:visibility="visible"
-        app:backgroundTint="@color/teal_200"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="138dp"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
