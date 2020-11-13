@@ -11,8 +11,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.DateFormatSymbols;
-
 public class login extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     Button sign_in;
@@ -33,20 +31,18 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
     }
 
 
-
-    @Override
-    public void onClick(View v) {
-        if(v==sign_in){
-            Intent intent= new Intent(this,activities.class );
-            startActivity(intent);
-        }
-
-    }
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text=parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(),text,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v==sign_in ){
+            Intent intent= new Intent(this, activities_client.class );
+            startActivity(intent);
+        }
 
     }
 
