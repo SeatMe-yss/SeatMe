@@ -20,7 +20,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        sign_in=(Button)findViewById(R.id.login2);
+        sign_in=(Button)findViewById(R.id.login1);
         sign_in.setOnClickListener(this);
         spinner_type=findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this, R.array.spinner_type, android.R.layout.simple_spinner_item);
@@ -29,6 +29,8 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
         spinner_type.setOnItemSelectedListener(this);
 
     }
+
+
 
 
     @Override

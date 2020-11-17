@@ -20,9 +20,9 @@ public class register extends AppCompatActivity implements View.OnClickListener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
-        register=(Button)findViewById(R.id.login2);
+        register=(Button)findViewById(R.id.register2);
         register.setOnClickListener(this);
-        spinner_type=findViewById(R.id.spinner);
+        spinner_type=findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this, R.array.spinner_type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_type.setAdapter(adapter);

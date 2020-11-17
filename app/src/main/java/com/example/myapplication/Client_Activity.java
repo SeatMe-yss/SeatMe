@@ -30,7 +30,7 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
         rank.setOnClickListener(this);
         myOrder=(Button)findViewById(R.id.button4);
         myOrder.setOnClickListener(this);
-        spinner_rest=findViewById(R.id.spinner);
+        spinner_rest=findViewById(R.id.spinner3);
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this, R.array.spinner_rest, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_rest.setAdapter(adapter);

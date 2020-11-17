@@ -66,12 +66,11 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/login2"
+            android:id="@+id/register2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginTop="34dp"
-            android:enabled="false"
             android:text="register"
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
