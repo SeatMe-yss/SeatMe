@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity android:name=".Client_Activity"></activity>
+        <activity android:name=".login_register"></activity>
         <activity android:name=".menue_client" />
         <activity
             android:name=".activity_rest"
