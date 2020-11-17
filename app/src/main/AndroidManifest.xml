@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".menue_client"></activity>
+        <activity android:name=".Client_Activity"></activity>
+        <activity android:name=".menue_client" />
         <activity
             android:name=".activity_rest"
             android:label="@string/title_activity_rest"
-            android:theme="@style/Theme.MyApplication.NoActionBar" />
+            android:parentActivityName=".login" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
@@ -32,13 +33,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".register">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activities_client">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

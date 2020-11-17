@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -8,10 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class activities_client extends AppCompatActivity implements View.OnClickListener , AdapterView.OnItemSelectedListener{
-
+public class Client_Activity extends AppCompatActivity implements View.OnClickListener , AdapterView.OnItemSelectedListener{
     Button made_reservation;
     Button menu;
     Button rank;
@@ -19,9 +18,10 @@ public class activities_client extends AppCompatActivity implements View.OnClick
     Spinner spinner_rest;
     String[] rest;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activities_client);
+        setContentView(R.layout.activity_client_activity);
         made_reservation=(Button)findViewById(R.id.button1);
         made_reservation.setOnClickListener(this);
         menu=(Button)findViewById(R.id.button2);

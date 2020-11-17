@@ -33,7 +33,7 @@ public class register extends AppCompatActivity implements View.OnClickListener,
     @Override
     public void onClick(View v) {
         if(v==register){
-            Intent intent= new Intent(this, activities_client.class );
+            Intent intent= new Intent(this, Client_Activity.class );
             startActivity(intent);
         }
     }

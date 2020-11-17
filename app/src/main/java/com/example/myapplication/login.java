@@ -40,7 +40,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
     @Override
     public void onClick(View v) {
         if(v==sign_in ){
-            Intent intent= new Intent(this, activities_client.class );
+            Intent intent= new Intent(this, Client_Activity.class );
             startActivity(intent);
         }
 
