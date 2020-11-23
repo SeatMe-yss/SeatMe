@@ -22,7 +22,7 @@
 
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/branch_sppiner"
         android:layout_width="330dp"
         android:layout_height="40dp"
         android:background="@color/white"
@@ -38,7 +38,7 @@
         tools:visibility="visible" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buttom1"
         android:layout_width="330dp"
         android:layout_height="40dp"
         android:layout_marginTop="23dp"
@@ -46,9 +46,9 @@
         android:textColor="@color/black"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/spinner3"
-        app:layout_constraintStart_toStartOf="@+id/spinner3"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3"
+        app:layout_constraintEnd_toEndOf="@+id/branch_sppiner"
+        app:layout_constraintStart_toStartOf="@+id/branch_sppiner"
+        app:layout_constraintTop_toBottomOf="@+id/branch_sppiner"
         app:layout_constraintVertical_bias="0.023" />
 
     <ImageView
@@ -65,7 +65,7 @@
 
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/ok"
         android:layout_width="330dp"
         android:layout_height="40dp"
         android:text="ההזמנות שלי"
@@ -102,10 +102,10 @@
         android:textColor="@color/black"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/button1"
+        app:layout_constraintEnd_toEndOf="@+id/buttom1"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button1"
-        app:layout_constraintTop_toBottomOf="@+id/button1"
+        app:layout_constraintStart_toStartOf="@+id/buttom1"
+        app:layout_constraintTop_toBottomOf="@+id/buttom1"
         app:layout_constraintVertical_bias="0.023" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

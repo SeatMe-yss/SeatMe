@@ -1,7 +1,8 @@
-package com.example.myapplication;
+package com.example.myapplication.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.myapplication.R;
 
 public class Client_Activity extends AppCompatActivity implements View.OnClickListener , AdapterView.OnItemSelectedListener{
     Button made_reservation;
@@ -22,15 +25,15 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_activity);
-        made_reservation=(Button)findViewById(R.id.button1);
+        made_reservation=(Button)findViewById(R.id.buttom1);
         made_reservation.setOnClickListener(this);
         menu=(Button)findViewById(R.id.button2);
         menu.setOnClickListener(this);
         rank=(Button)findViewById(R.id.button3);
         rank.setOnClickListener(this);
-        myOrder=(Button)findViewById(R.id.button4);
+        myOrder=(Button)findViewById(R.id.ok);
         myOrder.setOnClickListener(this);
-        spinner_rest=findViewById(R.id.spinner3);
+        spinner_rest=findViewById(R.id.branch_sppiner);
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this, R.array.spinner_rest, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_rest.setAdapter(adapter);
@@ -39,6 +42,10 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        if(v==made_reservation){
+            Intent intent= new Intent(this, order_place.class );
+            startActivity(intent);
+        }
 
     }
 

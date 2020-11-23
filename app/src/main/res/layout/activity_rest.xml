@@ -49,7 +49,7 @@
             app:layout_constraintVertical_bias="0.097" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/ok"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:layout_marginTop="85dp"
@@ -63,17 +63,17 @@
             app:layout_constraintVertical_bias="0.015" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/buttom1"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:text="לשינוי המסעדה שלי"
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/button4"
+            app:layout_constraintEnd_toEndOf="@+id/ok"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button4"
-            app:layout_constraintTop_toBottomOf="@+id/button4"
+            app:layout_constraintStart_toStartOf="@+id/ok"
+            app:layout_constraintTop_toBottomOf="@+id/ok"
             app:layout_constraintVertical_bias="0.216" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

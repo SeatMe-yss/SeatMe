@@ -4,10 +4,18 @@
         <item>לקוח</item>
     </string-array>
     <string-array name="spinner_rest">
+        <item> בחר מסעדה</item>
         <item> BBB</item>
         <item>japanika</item>
         <item>humangos</item>
         <item>kisu</item>
+    </string-array>
+    <string-array name="Branches">
+    <item> בחר סניף</item>
+    <item> סגולה</item>
+    <item>רחובות</item>
+    <item>תל אביב</item>
+    <item>גדרה</item>
     </string-array>
     <string name="app_name">My Application</string>
     <string name="title_activity_login">LoginActivity</string>

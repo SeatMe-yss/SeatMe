@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,18 +11,20 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class login extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+import com.example.myapplication.R;
 
-    Button sign_in;
+public class register extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+
+    Button register;
     Spinner spinner_type;
     String[] types;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
-        sign_in=(Button)findViewById(R.id.login1);
-        sign_in.setOnClickListener(this);
-        spinner_type=findViewById(R.id.spinner);
+        setContentView(R.layout.register);
+        register=(Button)findViewById(R.id.register2);
+        register.setOnClickListener(this);
+        spinner_type=findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this, R.array.spinner_type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_type.setAdapter(adapter);
@@ -30,21 +32,18 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
 
     }
 
-
-
+    @Override
+    public void onClick(View v) {
+        if(v==register){
+            Intent intent= new Intent(this, Client_Activity.class );
+            startActivity(intent);
+        }
+    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text=parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(),text,Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onClick(View v) {
-        if(v==sign_in ){
-            Intent intent= new Intent(this, Client_Activity.class );
-            startActivity(intent);
-        }
 
     }
 
