@@ -15,8 +15,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="-10dp">
+        tools:layout_editor_absoluteX="-43dp"
+        tools:layout_editor_absoluteY="92dp">
 
         <Spinner
             android:id="@+id/spinner2"
@@ -26,7 +26,7 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintHorizontal_bias="0.437"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.575" />
@@ -45,24 +45,25 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.777" />
 
-        <TextView
+        <EditText
             android:id="@+id/phone"
-            android:layout_width="325dp"
-            android:layout_height="41dp"
-            android:background="#FFFFFF"
-            android:text="Phone"
-            android:textColor="#79000000"
-            android:textSize="18sp"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:hint="Phone"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.486"
-            tools:text="Phone" />
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <EditText
+    <EditText
             android:id="@+id/password"
             android:layout_width="330dp"
             android:layout_height="40dp"
@@ -80,7 +81,7 @@
             app:layout_constraintTop_toBottomOf="@+id/username"
             app:layout_constraintVertical_bias="0.0" />
 
-        <EditText
+    <EditText
             android:id="@+id/username"
             android:layout_width="330dp"
             android:layout_height="40dp"
