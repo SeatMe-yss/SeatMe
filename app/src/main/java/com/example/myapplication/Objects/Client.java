@@ -1,24 +1,28 @@
 package com.example.myapplication.Objects;
 
 public class Client {
-    String username;
-    String password;
+    public String mail;
+    public String password;
+    public String phone;
+    public String id;
+
 
     public Client() {}
 
-    public Client(String username, String password) {
-        this.username = username;
+    public Client(String mail, String password,String phone, String id) {
+        this.mail = mail;
         this.password = password;
-
+        this.phone=phone;
+        this.id=id;
     }
 
 
-    public void setUsername(String Username) {
-        username = Username;
+    public void setMail(String mail) {
+        mail = mail;
     }
 
-    public String getUsername() {
-        return username;
+    public String getMail() {
+        return mail;
     }
 
     public void setPassword(String Password) {
@@ -29,11 +33,22 @@ public class Client {
         return password;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) { this.phone = phone; }
+
+    public String getId(){return id;}
+
+
+
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "mail='" + mail + '\'' +
                 ", password='" + password + '\'' +
+                ", phone="+phone+'\''+
                 '}';
     }
 

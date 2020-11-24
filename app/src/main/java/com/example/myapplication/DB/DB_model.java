@@ -3,8 +3,10 @@ import com.google.firebase.database.*;
 
 public class DB_model {
 
-        protected DatabaseReference ref;
+    protected static DatabaseReference ref;
 
-        public DB_model(){ ref = FirebaseDatabase.getInstance().getReference(); }
+    public static DatabaseReference get_DB(){
+        ref = FirebaseDatabase.getInstance().getReference();
+        return ref;
     }
-
+}
