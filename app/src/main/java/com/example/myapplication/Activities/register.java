@@ -69,13 +69,6 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
 
 
 
-//        //enter to database
-//        String user_id=fAuth.getCurrentUser().getUid();
-//        Client c =new Client(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
-//        FirebaseDatabase.getInstance().getReference().child("Clients").child(user_id).setValue(c);
-
-
-
 
         register.setOnClickListener(new View.OnClickListener(){
 
@@ -106,12 +99,17 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(register.this, "User create", Toast.LENGTH_SHORT).show();
+                            //enter to db
+                            String user_id=fAuth.getUid();
+//                            Client C=new Client("ggg", "000","00",user_id);
+//                            DB_model.get_DB().child("Client").child(user_id).setValue(C);
+
+                            DB_users.addUserToDB(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
+
                             startActivity(new Intent(getApplicationContext(),Client_Activity.class));
 
                         }else{
-                            Toast.makeText(register.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
+                            mail.setError("InVaild");
                         }
                     }
                 });
