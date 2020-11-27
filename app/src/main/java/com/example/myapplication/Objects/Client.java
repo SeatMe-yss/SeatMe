@@ -7,7 +7,7 @@ public class Client {
     public String id;
 
 
-    public Client() {}
+    public Client() {};
 
     public Client(String mail, String password,String phone, String id) {
         this.mail = mail;

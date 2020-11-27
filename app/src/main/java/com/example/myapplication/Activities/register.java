@@ -65,10 +65,15 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
             startActivity(new Intent(getApplicationContext(),Client_Activity.class));
             finish();
         }
-        //enter to database
+
+
+
+
+//        //enter to database
 //        String user_id=fAuth.getCurrentUser().getUid();
-//        Client c=new Client(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
+//        Client c =new Client(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
 //        FirebaseDatabase.getInstance().getReference().child("Clients").child(user_id).setValue(c);
+
 
 
 

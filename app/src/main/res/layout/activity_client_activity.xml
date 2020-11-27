@@ -98,21 +98,20 @@
         app:layout_constraintTop_toBottomOf="@+id/buttom1"
         app:layout_constraintVertical_bias="0.023" />
 
-<!--        <Button-->
-<!--            android:id="@+id/logout"-->
-<!--            android:layout_width="330dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:text="התנתק"-->
-<!--            android:textColor="@color/black"-->
-<!--            app:backgroundTint="@color/white"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/button3"-->
-<!--            app:layout_constraintHorizontal_bias="1.0"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/button3"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/button3"-->
-<!--            app:layout_constraintVertical_bias="0.441"-->
-<!--            android:onClick="logout"-->
-<!--            />-->
+        <Button
+
+            android:id="@+id/logout"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:text="התנתק"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/button3"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/button3"
+            app:layout_constraintTop_toBottomOf="@+id/button3"
+            app:layout_constraintVertical_bias="0.441" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

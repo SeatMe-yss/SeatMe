@@ -20,8 +20,10 @@ public class login_register extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_register);
-        login=(Button)findViewById(R.id.sign_in);
-        register=(Button)findViewById(R.id.register1);
+       //view by id
+        login=findViewById(R.id.sign_in);
+        register=findViewById(R.id.register1);
+        //setOnClickListener
         login.setOnClickListener(this);
         register.setOnClickListener(this);
 
