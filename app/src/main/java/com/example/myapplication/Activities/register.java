@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
 
 import javax.xml.validation.Validator;
 
-public class register extends AppCompatActivity implements AdapterView.OnItemSelectedListener,View.OnClickListener {
+public class register extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     Button register;
     Spinner spinner_type;
@@ -47,11 +47,12 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
         //view by id
-        register=(Button)findViewById(R.id.register2);
+        register=findViewById(R.id.register2);
         mail=findViewById(R.id.useremail);
         password=findViewById(R.id.password);
         phone=findViewById(R.id.phone);
         spinner_type=findViewById(R.id.spinner2);
+        //spinner
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this, R.array.spinner_type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_type.setAdapter(adapter);
@@ -65,9 +66,9 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
             finish();
         }
         //enter to database
-        String user_id=fAuth.getCurrentUser().getUid();
-        Client c=new Client(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
-        FirebaseDatabase.getInstance().getReference().child("Clients").child(user_id).setValue(c);
+//        String user_id=fAuth.getCurrentUser().getUid();
+//        Client c=new Client(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
+//        FirebaseDatabase.getInstance().getReference().child("Clients").child(user_id).setValue(c);
 
 
 
@@ -100,11 +101,11 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(), "User create", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(register.this, "User create", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),Client_Activity.class));
 
                         }else{
-                            Toast.makeText(getApplicationContext(), "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(register.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -185,11 +186,6 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
 
     }
 
-//    @Override
-//    public void onClick(View v) {
-//
-//    }
-//
 //
 ////    public void createRegisterDialog()
 ////    {

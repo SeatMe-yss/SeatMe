@@ -20,7 +20,7 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
     Button menu;
     Button rank;
     Button myOrder;
-    Button logout;
+//    Button logout;
     Spinner spinner_rest;
     String[] rest;
 
@@ -37,7 +37,7 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
         myOrder=(Button)findViewById(R.id.ok);
         myOrder.setOnClickListener(this);
         spinner_rest=findViewById(R.id.branch_sppiner);
-        logout.findViewById(R.id.logout);
+//        logout.findViewById(R.id.logout);
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this, R.array.spinner_rest, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_rest.setAdapter(adapter);
@@ -47,8 +47,8 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
 
 
     @Override
-    public void onClick(View view) {
-        if(view==made_reservation){
+    public void onClick(View v) {
+        if(v==made_reservation){
             Intent intent= new Intent(this, order_place.class );
             startActivity(intent);
         }
@@ -66,10 +66,9 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    public void logout(View v) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(this, register.class ));
-
-        finish();
-    }
+//    public void logout(View v) {
+//        FirebaseAuth.getInstance().signOut();
+//        startActivity(new Intent(getApplicationContext(), login_register.class ));
+//        finish();
+//    }
 }
