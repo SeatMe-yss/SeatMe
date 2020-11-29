@@ -16,8 +16,8 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="-246dp">
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="314dp">
 
 
         <Spinner
@@ -37,7 +37,7 @@
             tools:visibility="visible" />
 
         <Button
-            android:id="@+id/change"
+            android:id="@+id/resevartion"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:layout_marginTop="23dp"
@@ -51,67 +51,66 @@
             app:layout_constraintVertical_bias="0.023" />
 
 
-
-    <Button
-        android:id="@+id/review"
-        android:layout_width="330dp"
-        android:layout_height="40dp"
-        android:text="ההזמנות שלי"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/diary"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/diary"
-        app:layout_constraintTop_toBottomOf="@+id/diary"
-        app:layout_constraintVertical_bias="0.146" />
-
-
+        <Button
+            android:id="@+id/order"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:text="ההזמנות שלי"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/review"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/review"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.666" />
 
         <Button
-        android:id="@+id/diary"
-        android:layout_width="330dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="32dp"
-        android:text="דירוג המסעדה"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/menu"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="@+id/menu"
-        app:layout_constraintTop_toBottomOf="@+id/menu"
-        app:layout_constraintVertical_bias="0.035" />
-
-    <Button
-        android:id="@+id/menu"
-        android:layout_width="330dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="27dp"
-        android:text="צפייה בתפריט"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/change"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/change"
-        app:layout_constraintTop_toBottomOf="@+id/change"
-        app:layout_constraintVertical_bias="0.023" />
+            android:id="@+id/review"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:text="דירוג המסעדה"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/menu"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="@+id/menu"
+            app:layout_constraintTop_toBottomOf="@+id/menu"
+            app:layout_constraintVertical_bias="0.035" />
 
         <Button
+            android:id="@+id/menu"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="27dp"
+            android:text="צפייה בתפריט"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.479"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.389" />
 
+        <Button
             android:id="@+id/logout"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:text="התנתק"
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
+
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/diary"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/diary"
-            app:layout_constraintTop_toBottomOf="@+id/diary"
-            app:layout_constraintVertical_bias="0.441" />
+            app:layout_constraintEnd_toEndOf="@+id/order"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/order"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.784" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

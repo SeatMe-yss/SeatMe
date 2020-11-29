@@ -28,10 +28,10 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_activity);
         //find view by id
-        made_reservation=findViewById(R.id.change);
+        made_reservation=findViewById(R.id.resevartion);
         menu=findViewById(R.id.menu);
-        rank=findViewById(R.id.diary);
-        myOrder=findViewById(R.id.review);
+        rank=findViewById(R.id.review);
+        myOrder=findViewById(R.id.order);
         logout=findViewById(R.id.logout);
 
         //spinner
@@ -83,7 +83,5 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-//    public void logout() {
-//
-//    }
+
 }

@@ -21,7 +21,7 @@
         tools:layout_editor_absoluteY="-194dp">
 
         <Button
-            android:id="@+id/menu"
+            android:id="@+id/my_menu"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:text="עדכון תפריט"
@@ -29,27 +29,27 @@
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.326"
+            app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.256" />
+            app:layout_constraintVertical_bias="0.318" />
 
         <Button
-            android:id="@+id/diary"
+            android:id="@+id/my_diary"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:text="היומן שלי "
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/menu"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/menu"
-            app:layout_constraintTop_toBottomOf="@+id/menu"
-            app:layout_constraintVertical_bias="0.097" />
+            app:layout_constraintEnd_toEndOf="@+id/my_review"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/my_review"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.525" />
 
         <Button
-            android:id="@+id/review"
+            android:id="@+id/my_review"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:layout_marginTop="85dp"
@@ -57,23 +57,38 @@
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/diary"
-            app:layout_constraintStart_toStartOf="@+id/diary"
-            app:layout_constraintTop_toTopOf="@+id/diary"
-            app:layout_constraintVertical_bias="0.015" />
+            app:layout_constraintEnd_toEndOf="@+id/my_menu"
+            app:layout_constraintHorizontal_bias="0.673"
+            app:layout_constraintStart_toStartOf="@+id/my_menu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.337" />
 
         <Button
-            android:id="@+id/change"
+            android:id="@+id/my_logout"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:text="התנתק"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/my_diary"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/my_diary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.629" />
+
+        <Button
+            android:id="@+id/my_change"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:text="לשינוי המסעדה שלי"
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/review"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/review"
-            app:layout_constraintTop_toBottomOf="@+id/review"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.216" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
