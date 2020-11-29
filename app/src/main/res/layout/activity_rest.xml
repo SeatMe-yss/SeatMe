@@ -21,7 +21,7 @@
         tools:layout_editor_absoluteY="-194dp">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/menu"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:text="עדכון תפריט"
@@ -35,21 +35,21 @@
             app:layout_constraintVertical_bias="0.256" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/diary"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:text="היומן שלי "
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="@+id/menu"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/button2"
-            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintStart_toStartOf="@+id/menu"
+            app:layout_constraintTop_toBottomOf="@+id/menu"
             app:layout_constraintVertical_bias="0.097" />
 
         <Button
-            android:id="@+id/ok"
+            android:id="@+id/review"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:layout_marginTop="85dp"
@@ -57,23 +57,23 @@
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/button3"
-            app:layout_constraintStart_toStartOf="@+id/button3"
-            app:layout_constraintTop_toTopOf="@+id/button3"
+            app:layout_constraintEnd_toEndOf="@+id/diary"
+            app:layout_constraintStart_toStartOf="@+id/diary"
+            app:layout_constraintTop_toTopOf="@+id/diary"
             app:layout_constraintVertical_bias="0.015" />
 
         <Button
-            android:id="@+id/buttom1"
+            android:id="@+id/change"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:text="לשינוי המסעדה שלי"
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/ok"
+            app:layout_constraintEnd_toEndOf="@+id/review"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/ok"
-            app:layout_constraintTop_toBottomOf="@+id/ok"
+            app:layout_constraintStart_toStartOf="@+id/review"
+            app:layout_constraintTop_toBottomOf="@+id/review"
             app:layout_constraintVertical_bias="0.216" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -28,10 +28,10 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_activity);
         //find view by id
-        made_reservation=findViewById(R.id.buttom1);
-        menu=findViewById(R.id.button2);
-        rank=findViewById(R.id.button3);
-        myOrder=findViewById(R.id.ok);
+        made_reservation=findViewById(R.id.change);
+        menu=findViewById(R.id.menu);
+        rank=findViewById(R.id.diary);
+        myOrder=findViewById(R.id.review);
         logout=findViewById(R.id.logout);
 
         //spinner

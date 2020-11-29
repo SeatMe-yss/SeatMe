@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.DB.DB_Business;
 import com.example.myapplication.DB.DB_model;
 import com.example.myapplication.DB.DB_users;
 import com.example.myapplication.Objects.Client;
@@ -77,6 +78,8 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
                 String user_mail=mail.getText().toString();
                 String user_password=password.getText().toString();
                 String user_phone=phone.getText().toString();
+                String type=spinner_type.getSelectedItem().toString();
+                //checking error
                 if(TextUtils.isEmpty(user_mail)){
                     mail.setError("Email isn't vaild");
                     return;
@@ -101,13 +104,14 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
                         if(task.isSuccessful()){
                             //enter to db
                             String user_id=fAuth.getUid();
-//                            Client C=new Client("ggg", "000","00",user_id);
-//                            DB_model.get_DB().child("Client").child(user_id).setValue(C);
-
-                            DB_users.addUserToDB(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
-
-                            startActivity(new Intent(getApplicationContext(),Client_Activity.class));
-
+                          if(type.equals("לקוח")){
+                             DB_users.addUserToDB(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
+                              startActivity(new Intent(getApplicationContext(),Client_Activity.class));
+                          }
+                          else if(type.equals("בית עסק")) {
+                              DB_Business.addBusinessToDB(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
+                              startActivity(new Intent(getApplicationContext(),activity_rest.class));
+                          }
                         }else{
                             mail.setError("InVaild");
                         }
