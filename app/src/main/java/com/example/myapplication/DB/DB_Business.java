@@ -9,4 +9,8 @@ public class DB_Business {
         Business B=new Business(mail, password,phone,id);
         DB_model.get_DB().child("Business").child(id).setValue(B);
     }
+
+//    public static boolean isBusiness(String id ){
+//        return DB_model.search_client(id);
+//    }
 }
