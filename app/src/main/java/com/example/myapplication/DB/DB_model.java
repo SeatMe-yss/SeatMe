@@ -12,12 +12,12 @@ public class DB_model {
         return ref;
     }
 
-    public static boolean search_client(String id){
-
-        return false;
-
-
-    }
+//    public static boolean search_client(String id){
+//
+//        return false;
+//
+//
+//    }
 
 
 

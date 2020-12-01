@@ -23,6 +23,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class login extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
@@ -31,6 +33,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
     Spinner spinner_type;
     String[] types;
     FirebaseAuth fAuth;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +63,8 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
 
             @Override
             public void onClick(View v) {
+
+
                 String user_mail = mail.getText().toString();
                 String user_password = password.getText().toString();
                 String type = spinner_type.getSelectedItem().toString();
@@ -76,23 +81,25 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
                     password.setError("Password must be more than 6 chars");
                     return;
                 }
-                //register
+
                 if (v == sign_in) {
                     fAuth.signInWithEmailAndPassword(user_mail, user_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 String user_id=fAuth.getUid();
-                                if (type.equals("לקוח") ) {
-                                    DB_model.search_client(user_id);
+                                if (type.equals("לקוח") && DB_users.isClient(user_id) ) {
                                     startActivity(new Intent(getApplicationContext(), Client_Activity.class));
                                 }
-                                else if (type.equals("בית עסק") ) {
-                                    startActivity(new Intent(getApplicationContext(), activity_rest.class));
-
-                                }else{
-                                    ((TextView)spinner_type.getSelectedView()).setError("המשתמש שנבחר אינו מתאים");
+//                                else if (type.equals("בית עסק") ) {
+//                                    startActivity(new Intent(getApplicationContext(), activity_rest.class));
+//                                }
+                                else if(type.equals("בית עסק") && (DB_users.isClient(user_id))){
+                                    startActivity(new Intent(getApplicationContext(), order_place.class));
+                                    //((TextView)spinner_type.getSelectedView()).setError("המשתמש שנבחר אינו מתאים");
                                 }
+                                else{ mail.setError("בלה1 ");}
+
                             } else {
                                  mail.setError("המייל או הסיסמה אינם תקינים");
                                  password.setError("המייל או הסיסמה אינם תקינים");
