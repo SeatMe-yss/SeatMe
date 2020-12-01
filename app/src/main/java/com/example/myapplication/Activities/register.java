@@ -104,11 +104,11 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
                         if(task.isSuccessful()){
                             //enter to db
                             String user_id=fAuth.getUid();
-                          if(type.equals("לקוח")){
+                          if(type.equals("לקוח") ){
                              DB_users.addUserToDB(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
                               startActivity(new Intent(getApplicationContext(),Client_Activity.class));
                           }
-                          else if(type.equals("בית עסק")) {
+                          else if(type.equals("בית עסק") ) {
                               DB_Business.addBusinessToDB(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
                               startActivity(new Intent(getApplicationContext(),activity_rest.class));
                           }

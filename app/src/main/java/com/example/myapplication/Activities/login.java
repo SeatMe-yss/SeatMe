@@ -88,17 +88,16 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 String user_id=fAuth.getUid();
-                                if (type.equals("לקוח") && DB_users.isClient(user_id) ) {
+                                DB_users.isClient(user_id);
+                                if (type.equals("לקוח") && DB_users.isC) {
                                     startActivity(new Intent(getApplicationContext(), Client_Activity.class));
                                 }
-//                                else if (type.equals("בית עסק") ) {
-//                                    startActivity(new Intent(getApplicationContext(), activity_rest.class));
-//                                }
-                                else if(type.equals("בית עסק") && (DB_users.isClient(user_id))){
-                                    startActivity(new Intent(getApplicationContext(), order_place.class));
-                                    //((TextView)spinner_type.getSelectedView()).setError("המשתמש שנבחר אינו מתאים");
+                                else if (type.equals("בית עסק") && !DB_users.isC ) {
+                                    startActivity(new Intent(getApplicationContext(), activity_rest.class));
                                 }
-                                else{ mail.setError("בלה1 ");}
+                                else{
+                                    ((TextView)spinner_type.getSelectedView()).setError("המשתמש שנבחר אינו מתאים");
+                                }
 
                             } else {
                                  mail.setError("המייל או הסיסמה אינם תקינים");

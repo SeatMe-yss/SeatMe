@@ -7,6 +7,7 @@ public class Business {
     public String phone;
     public String id;
 
+
     public Business() {};
 
     public Business(String mail, String password,String phone, String id) {
