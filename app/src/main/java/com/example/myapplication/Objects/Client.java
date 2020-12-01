@@ -1,11 +1,13 @@
 package com.example.myapplication.Objects;
 
+import java.util.List;
+
 public class Client {
     public String mail;
     public String password;
     public String phone;
     public String id;
-
+    public List<Order> Orders;
 
     public Client() {};
 
@@ -40,6 +42,10 @@ public class Client {
     public void setPhone(String phone) { this.phone = phone; }
 
     public String getId(){return id;}
+
+    public void addOrder(Order o){
+        this.Orders.add(o);
+    }
 
 
 

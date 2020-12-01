@@ -30,7 +30,7 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
         //find view by id
         made_reservation=findViewById(R.id.resevartion);
         menu=findViewById(R.id.menu);
-        rank=findViewById(R.id.review);
+        rank=findViewById(R.id.order_place1);
         myOrder=findViewById(R.id.order);
         logout=findViewById(R.id.logout);
 

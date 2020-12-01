@@ -10,13 +10,17 @@
         <item>humangos</item>
         <item>kisu</item>
     </string-array>
-    <string-array name="Branches">
-    <item> בחר סניף</item>
-    <item> סגולה</item>
-    <item>רחובות</item>
-    <item>תל אביב</item>
-    <item>גדרה</item>
+    <string-array name="spinner_time">
+        <item> 8:00-10:00</item>
+        <item> 10:00-12:00</item>
+        <item>12:00-14:00</item>
+        <item>14:00-16:00</item>
+        <item>16:00-18:00</item>
+        <item>18:00-20:00</item>
     </string-array>
+
+
+
     <string name="app_name">My Application</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
