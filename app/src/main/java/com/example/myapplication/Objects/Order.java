@@ -40,9 +40,8 @@ public class Order {
     }
 
     public Order(){}
-    public Order(String rest_name, String Order_id,String Order_meal, String time,String year,String month, String day ) {
+    public Order(String rest_name,String Order_meal, String time,String year,String month, String day ) {
         this.Rest_name = rest_name;
-        this.Order_id = Order_id;
         this.Order_meal=Order_meal;
         this.time=time;
         this.year=year;

@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
+import com.example.myapplication.DB.DB_model;
+import com.example.myapplication.Objects.Order;
 import com.example.myapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -57,7 +59,10 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                 String month=date.getMonth()+"";
                 String year=date.getYear()+"";
                 String day=date.getDayOfMonth()+"";
-
+                String Rest_name=""; //need to get from the before activity
+                //get an new key
+                Order O= new Order(Rest_name, order_message, time_order, year, month, day );
+                O.setOrder_id(DB_model.get_DB().push().getKey()); //inialize key
 
 
 
@@ -78,7 +83,6 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
         DatePicker date=findViewById(R.id.datePicker1);
 
     }
