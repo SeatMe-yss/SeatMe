@@ -1,8 +1,8 @@
 package com.example.myapplication.Objects;
 
-public class Order {
+ public  class  Order {
     String Rest_name;
-    String Order_id;
+     static String Order_id;
     String Order_meal;
     String time;
     String year,day,month;
@@ -51,15 +51,15 @@ public class Order {
 
 
     public void setOrder_id(String Order_id) {
-        Order_id=Order_id;
+        this.Order_id=Order_id;
     }
 
-    public String getOrder_id() {
-        return Order_id;
+    public static String getOrder_id() {
+        return  Order_id;
     }
 
     public void setRest_name(String Rest_name) {
-        Rest_name = Rest_name;
+        this.Rest_name = Rest_name;
     }
 
     public String getRest_name() {
@@ -72,11 +72,6 @@ public class Order {
 
     public void setOrder_meal(String phone) { Order_meal = Order_meal; }
 
-    public String gettime() {
-        return time;
-    }
-
-    public void settime(String time) { time = time; }
 
 
 
@@ -85,7 +80,7 @@ public class Order {
     public String toString() {
         return "order{" +
                 "order_id='" + getOrder_id() + '\'' +
-                ", time='" + gettime() + '\'' +
+                ", time='" + getTime() + '\'' +
                 '}';
     }
 

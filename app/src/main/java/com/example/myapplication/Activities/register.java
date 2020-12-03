@@ -142,6 +142,9 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     public void onClick(View v) {
 
+
+
+
     }
 
 

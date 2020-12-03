@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
+import com.example.myapplication.DB.DB_Business;
+import com.example.myapplication.DB.DB_Orders;
 import com.example.myapplication.DB.DB_model;
 import com.example.myapplication.Objects.Order;
 import com.example.myapplication.R;
@@ -61,8 +63,16 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                 String day=date.getDayOfMonth()+"";
                 String Rest_name=""; //need to get from the before activity
                 //get an new key
-                Order O= new Order(Rest_name, order_message, time_order, year, month, day );
-                O.setOrder_id(DB_model.get_DB().push().getKey()); //inialize key
+                Order  O= new  Order(Rest_name, order_message, time_order, year, month, day );
+                String Uid=DB_model.get_DB().child("Orders").push().getKey();//maybe .child("orders")
+                O.setOrder_id(Uid);
+
+                //add the order to DB
+               DB_Orders.addOrderToDB(O);
+
+
+
+
 
 
 
