@@ -76,8 +76,6 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                     if(ds.child("name_rest").getValue(String.class).equals(Rest_name)){
                         id_Bus =ds.child("id").getValue(String.class);
 
-                    }else{
-                        id_Bus="notfound";
                     }
                 }
 
