@@ -18,7 +18,7 @@ public class DB_Business {
         Business B=new Business(mail, password,phone,id);
         DB_model.get_DB().getRef().child("Business").child(id).setValue(B);
     }
-    //add the rest name
+    //add the rest names
     public static void addRestNameToDB(String r, Business B){
 
     }
@@ -27,23 +27,26 @@ public class DB_Business {
         B.addOrder(O);
         DB_model.get_DB().getRef().child("Business").child(B.getId()).setValue(O);
     }
-//
-//    public static List<String> getresturants(){
-//        List <String> r=new ArrayList<>();
-//
-//        DB_model.get_DB().getRef().child("Business").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//            String name=snapshot.child("name_rest"
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//    }
+
+    public static List<String> getresturants(){
+        List <String> r=new ArrayList<>();
+
+        DB_model.get_DB().getRef().child("Business").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            for(DataSnapshot ds: snapshot.getChildren()){
+                r.add(ds.child("name_rest").getValue(String.class));
+            }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        return r;
+
+    }
 
 
 

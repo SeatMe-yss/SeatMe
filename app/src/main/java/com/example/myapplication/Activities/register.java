@@ -55,8 +55,6 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
 
 
 
-
-
         register.setOnClickListener(new View.OnClickListener(){
 
             @Override

@@ -45,13 +45,15 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
         myOrder=findViewById(R.id.order);
         logout=findViewById(R.id.logout);
 
-        //initlized the resturant by DB
-//        restaurants=DB_Business.getresturants();
+
 
 
         //spinner of resurant from DB
         restaurants=new ArrayList<String>();
-        restaurants.add("stam");
+
+        //initlized the resturants by DB
+        restaurants=DB_Business.getresturants();
+
         spinner_rest=findViewById(R.id.branch_sppiner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, restaurants);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
@@ -75,9 +77,10 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        String r=spinner_rest.getSelectedItem().toString();
 
         if(v==made_reservation){
+            String r=spinner_rest.getSelectedItem().toString();
+
             //pass the restaurant name to the next activity
             if(r.equals("בחר מסעדה")){
                 ((TextView)spinner_rest.getSelectedView()).setError("בחר מסעדה");
@@ -102,6 +105,7 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
 
         }
         else if(v==menu){//just checking
+            String r=spinner_rest.getSelectedItem().toString();
 
             if(r.equals("בחר מסעדה")) {
                 ((TextView)spinner_rest.getSelectedView()).setError("בחר מסעדה");
