@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".Activities.order_place"></activity>
+        <activity android:name=".Activities.change_my_rest"></activity>
+        <activity android:name=".Activities.rest_diary" />
+        <activity android:name=".Activities.order_place" />
         <activity android:name=".Activities.Client_Activity" />
         <activity android:name=".Activities.login_register" />
         <activity android:name=".Activities.menue_client" />

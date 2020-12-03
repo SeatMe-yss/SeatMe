@@ -1,7 +1,5 @@
 package com.example.myapplication.Activities;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,30 +9,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.DB.DB_Business;
-import com.example.myapplication.DB.DB_model;
 import com.example.myapplication.DB.DB_users;
-import com.example.myapplication.Objects.Client;
 import com.example.myapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
-
-
-import java.text.BreakIterator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.xml.validation.Validator;
 
 public class register extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
@@ -106,7 +92,7 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
                             String user_id=fAuth.getUid();
                           if(type.equals("לקוח") ){
                              DB_users.addUserToDB(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
-                              startActivity(new Intent(getApplicationContext(),Client_Activity.class));
+                             startActivity(new Intent(getApplicationContext(),Client_Activity.class));
                           }
                           else if(type.equals("בית עסק") ) {
                               DB_Business.addBusinessToDB(mail.getText().toString(), password.getText().toString(),phone.getText().toString(),user_id);
@@ -146,10 +132,6 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
 
 
     }
-
-
-
-
 
 
 }

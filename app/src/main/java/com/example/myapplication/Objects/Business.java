@@ -8,6 +8,7 @@ public class Business {
     public String password;
     public String phone;
     public String id;
+    public String name_rest;
     public List<Order> Orders;
     public List<Integer>tables;
 
@@ -18,8 +19,13 @@ public class Business {
         this.mail = mail;
         this.password = password;
         this.phone=phone;
+        this.name_rest=" ";
         this.id=id;
     }
+
+    public String getname_rest(){return this.name_rest;}
+
+    public void setname_rest(String r){this.name_rest=r;}
 
     public void setMail(String mail) {
         mail = mail;

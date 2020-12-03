@@ -15,8 +15,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.DB.DB_Business;
 import com.example.myapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client_Activity extends AppCompatActivity implements View.OnClickListener , AdapterView.OnItemSelectedListener{
     Button made_reservation;
@@ -26,6 +30,7 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
     Button logout;
     Spinner spinner_rest;
     SharedPreferences sp;
+    List<String> restaurants;
     public static final String SHARED_PRE="sharedPrefs";
 
 
@@ -40,11 +45,17 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
         myOrder=findViewById(R.id.order);
         logout=findViewById(R.id.logout);
 
-        //spinner
+        //initlized the resturant by DB
+//        restaurants=DB_Business.getresturants();
+
+
+        //spinner of resurant from DB
+        restaurants=new ArrayList<String>();
+        restaurants.add("stam");
         spinner_rest=findViewById(R.id.branch_sppiner);
-        ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this, R.array.spinner_rest, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_rest.setAdapter(adapter);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, restaurants);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+        spinner_rest.setAdapter(spinnerArrayAdapter);
         spinner_rest.setOnItemSelectedListener(this);
 
         //set on clicklistener

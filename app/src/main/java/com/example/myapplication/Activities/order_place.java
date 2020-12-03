@@ -75,8 +75,10 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                 String Uid=DB_model.get_DB().child("Orders").push().getKey();//maybe .child("orders")
                 O.setOrder_id(Uid);
 
-                //add the order to DB
+                //add the order to DB_
                DB_Orders.addOrderToDB(O);
+               //add order to resturant
+//                DB_Business.addOrdertoBusiness(,O);
                startActivity(new Intent(getApplicationContext(),Client_Activity.class));
 
 

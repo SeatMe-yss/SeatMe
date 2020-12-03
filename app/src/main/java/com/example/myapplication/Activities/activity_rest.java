@@ -58,6 +58,9 @@ public class activity_rest extends AppCompatActivity implements View.OnClickList
         }
         else if(v==change){
 
+            Intent intent= new Intent(this, change_my_rest.class );
+            startActivity(intent);
+
         }
 
     }
