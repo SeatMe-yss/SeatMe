@@ -77,6 +77,8 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
 
                 //add the order to DB
                DB_Orders.addOrderToDB(O);
+               startActivity(new Intent(getApplicationContext(),Client_Activity.class));
+
 
 
 

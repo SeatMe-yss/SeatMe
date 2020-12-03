@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
@@ -63,16 +64,24 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        String r=spinner_rest.getSelectedItem().toString();
+
         if(v==made_reservation){
             //pass the restaurant name to the next activity
-            String r=spinner_rest.getSelectedItem().toString();
-            SharedPreferences.Editor editor=sp.edit();
-            editor.putString("restaurant name", r);
-            editor.apply();
+            if(r.equals("בחר מסעדה")){
+                ((TextView)spinner_rest.getSelectedView()).setError("בחר מסעדה");
 
-            //starting the new activity
-            Intent intent= new Intent(this, order_place.class );
-            startActivity(intent);
+            }
+            else{
+                SharedPreferences.Editor editor=sp.edit();
+                editor.putString("restaurant name", r);
+                editor.apply();
+
+                //starting the new activity
+                Intent intent= new Intent(this, order_place.class );
+                startActivity(intent);
+            }
+
         }
         else if(v==logout){
             FirebaseAuth.getInstance().signOut();
@@ -82,8 +91,16 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
 
         }
         else if(v==menu){//just checking
-            Intent intent= new Intent(this, order_place.class );
-            startActivity(intent);
+
+            if(r.equals("בחר מסעדה")) {
+                ((TextView)spinner_rest.getSelectedView()).setError("בחר מסעדה");
+
+            }
+            else{
+                Intent intent = new Intent(this, order_place.class);
+                startActivity(intent);
+
+            }
         }
 
     }
