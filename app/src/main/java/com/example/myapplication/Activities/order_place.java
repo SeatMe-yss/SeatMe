@@ -1,5 +1,6 @@
 package com.example.myapplication.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -22,6 +23,12 @@ import com.example.myapplication.DB.DB_model;
 import com.example.myapplication.Objects.Order;
 import com.example.myapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class order_place extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
@@ -31,6 +38,9 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
     Button order;
     FirebaseAuth fAuth;
     SharedPreferences sp;
+
+    //
+    String id_Bus ,  id_client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,20 +76,53 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                 String month=date.getMonth()+"";
                 String year=date.getYear()+"";
                 String day=date.getDayOfMonth()+"";
+
                 //getting restaurant name from the last activity
                 String Rest_name = sp.getString("restaurant name", "");
 
+                //getting the id of rest
+                DB_model.get_DB().getRef().child("Business").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            String a=ds.child("name_rest").getValue(String.class);
+                            System.out.println(a);
+                            if(ds.child("name_rest").getValue(String.class).equals(Rest_name))
+                                id_Bus =ds.child("id").getValue(String.class);
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+                //id client
+                id_client=fAuth.getUid().toString();
 
                 //get an new key
-                Order  O= new  Order(Rest_name, order_message, time_order, year, month, day );
+                Order  O= new  Order( Rest_name, order_message,  id_client, id_Bus,  time_order, year, month,  day);
                 String Uid=DB_model.get_DB().child("Orders").push().getKey();//maybe .child("orders")
                 O.setOrder_id(Uid);
 
                 //add the order to DB_
                DB_Orders.addOrderToDB(O);
-               //add order to resturant
-//                DB_Business.addOrdertoBusiness(,O);
-               startActivity(new Intent(getApplicationContext(),Client_Activity.class));
+
+               //add order to Business
+                Map<String,Object> mapB=new HashMap<>();
+                mapB.put("Orders", O);
+                DB_model.get_DB().getRef().child("Business").child(id_Bus).updateChildren(mapB);
+
+                //add order to client
+                Map<String,Object> mapC=new HashMap<>();
+                mapC.put("Orders", O);
+                DB_model.get_DB().getRef().child("Clients").child(id_client).updateChildren(mapC);
+
+
+                startActivity(new Intent(getApplicationContext(),Client_Activity.class));
 
 
 

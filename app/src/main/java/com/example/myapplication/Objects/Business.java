@@ -1,5 +1,6 @@
 package com.example.myapplication.Objects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Business {
@@ -9,7 +10,7 @@ public class Business {
     public String phone;
     public String id;
     public String name_rest;
-    public List<Order> Orders;
+    public List<Order> Orders=new ArrayList<>();
     public List<Integer>tables;
 
 
@@ -21,6 +22,8 @@ public class Business {
         this.phone=phone;
         this.name_rest=" ";
         this.id=id;
+        this.Orders.add(new Order());
+
     }
 
     public String getname_rest(){return this.name_rest;}

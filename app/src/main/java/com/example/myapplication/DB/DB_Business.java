@@ -19,29 +19,27 @@ public class DB_Business {
         DB_model.get_DB().getRef().child("Business").child(id).setValue(B);
     }
 
-    public static void addOrdertoBusiness(Order O){
 
-    }
 
-    public static List<String> getresturants(){
-        List <String> r=new ArrayList<>();
-
-        DB_model.get_DB().getRef().child("Business").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-            for(DataSnapshot ds: snapshot.getChildren()){
-                r.add(ds.child("name_rest").getValue(String.class));
-            }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        return r;
-
-    }
+//    public static List<String> getresturants(){
+//        List <String> r=new ArrayList<>();
+//
+//        DB_model.get_DB().getRef().child("Business").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for(DataSnapshot ds: snapshot.getChildren()){
+//                    r.add(ds.child("name_rest").getValue(String.class));
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//        return r;
+//
+//    }
 
 
 
