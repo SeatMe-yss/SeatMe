@@ -66,7 +66,36 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
         sp=getSharedPreferences("restaurant name", Context.MODE_PRIVATE);
 
 
+        String Rest_name = sp.getString("restaurant name", "");
+
+        DB_model.get_DB().getRef().child("Business").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    String a=ds.child("name_rest").getValue(String.class);
+                    if(ds.child("name_rest").getValue(String.class).equals(Rest_name)){
+                        id_Bus =ds.child("id").getValue(String.class);
+
+                    }else{
+                        id_Bus="notfound";
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
         order.setOnClickListener(new View.OnClickListener(){
+
+
+
 
             @Override
             public void onClick(View v) {
@@ -80,28 +109,8 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                 //getting restaurant name from the last activity
                 String Rest_name = sp.getString("restaurant name", "");
 
-                //getting the id of rest
-                DB_model.get_DB().getRef().child("Business").addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot ds : snapshot.getChildren()) {
-                            String a=ds.child("name_rest").getValue(String.class);
-                            System.out.println(a);
-                            if(ds.child("name_rest").getValue(String.class).equals(Rest_name))
-                                id_Bus =ds.child("id").getValue(String.class);
-                        }
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-
-                //id client
-                id_client=fAuth.getUid().toString();
+                gettingid();
+                System.out.println("u:"+id_client+", c" +id_Bus);
 
                 //get an new key
                 Order  O= new  Order( Rest_name, order_message,  id_client, id_Bus,  time_order, year, month,  day);
@@ -124,18 +133,21 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
 
                 startActivity(new Intent(getApplicationContext(),Client_Activity.class));
 
-
-
-
-
-
-
-
-
             }
         });
 
 
+
+        }
+
+        public void gettingid(){
+            //getting the id of rest
+            //getting restaurant name from the last activity
+
+
+
+            //id client
+            id_client=fAuth.getUid().toString();
 
         }
 
