@@ -2,8 +2,11 @@ package com.example.myapplication.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,7 +24,9 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
     Button myOrder;
     Button logout;
     Spinner spinner_rest;
-    String[] rest;
+    SharedPreferences sp;
+    public static final String SHARED_PRE="sharedPrefs";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,10 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
         myOrder.setOnClickListener(this);
         logout.setOnClickListener(this);
 
+        //shared preference
+        sp=getSharedPreferences("restaurant name", Context.MODE_PRIVATE);
+
+
     }
 
 
@@ -55,6 +64,13 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if(v==made_reservation){
+            //pass the restaurant name to the next activity
+            String r=spinner_rest.getSelectedItem().toString();
+            SharedPreferences.Editor editor=sp.edit();
+            editor.putString("restaurant name", r);
+            editor.apply();
+
+            //starting the new activity
             Intent intent= new Intent(this, order_place.class );
             startActivity(intent);
         }

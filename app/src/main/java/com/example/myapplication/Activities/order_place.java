@@ -2,8 +2,11 @@ package com.example.myapplication.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,6 +30,7 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
     Spinner time;
     Button order;
     FirebaseAuth fAuth;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,7 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
         time.setAdapter(adapter);
         time.setOnItemSelectedListener(this);
 
+        sp=getSharedPreferences("restaurant name", Context.MODE_PRIVATE);
 
 
         order.setOnClickListener(new View.OnClickListener(){
@@ -61,7 +66,10 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                 String month=date.getMonth()+"";
                 String year=date.getYear()+"";
                 String day=date.getDayOfMonth()+"";
-                String Rest_name=""; //need to get from the before activity
+                //getting restaurant name from the last activity
+                String Rest_name = sp.getString("restaurant name", "");
+
+
                 //get an new key
                 Order  O= new  Order(Rest_name, order_message, time_order, year, month, day );
                 String Uid=DB_model.get_DB().child("Orders").push().getKey();//maybe .child("orders")
