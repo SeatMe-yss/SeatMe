@@ -18,14 +18,9 @@ public class DB_Business {
         Business B=new Business(mail, password,phone,id);
         DB_model.get_DB().getRef().child("Business").child(id).setValue(B);
     }
-    //add the rest names
-    public static void addRestNameToDB(String r, Business B){
 
-    }
+    public static void addOrdertoBusiness(Order O){
 
-    public static void addOrdertoBusiness(Business B ,Order O){
-        B.addOrder(O);
-        DB_model.get_DB().getRef().child("Business").child(B.getId()).setValue(O);
     }
 
     public static List<String> getresturants(){
