@@ -72,13 +72,18 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    String a=ds.child("name_rest").getValue(String.class);
-                    if(ds.child("name_rest").getValue(String.class).equals(Rest_name)){
-                        id_Bus =ds.child("id").getValue(String.class);
+                    String a = ds.child("name_rest").getValue(String.class);
+                    if (ds.child("name_rest").getValue(String.class).equals(Rest_name)) {
+                        id_Bus = ds.child("id").getValue(String.class);
 
                     }
                 }
 
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    String a = ds.child("name_rest").getValue(String.class);
+                    System.out.println(a);
+
+                }
             }
 
             @Override
@@ -110,6 +115,12 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                 gettingid();
                 System.out.println("u:"+id_client+", c" +id_Bus);
 
+
+
+                //id client
+                id_client=fAuth.getUid().toString();
+
+
                 //get an new key
                 Order  O= new  Order( Rest_name, order_message,  id_client, id_Bus,  time_order, year, month,  day);
                 String Uid=DB_model.get_DB().child("Orders").push().getKey();//maybe .child("orders")
@@ -121,12 +132,12 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                //add order to Business
                 Map<String,Object> mapB=new HashMap<>();
                 mapB.put("Orders", O);
-                DB_model.get_DB().getRef().child("Business").child(id_Bus).updateChildren(mapB);
+                DB_model.get_DB().getRef().child("Business").child(id_Bus).child("Orders").child(O.getOrder_id()).setValue(O);
 
                 //add order to client
                 Map<String,Object> mapC=new HashMap<>();
                 mapC.put("Orders", O);
-                DB_model.get_DB().getRef().child("Clients").child(id_client).updateChildren(mapC);
+                DB_model.get_DB().getRef().child("Clients").child(id_client).child("Orders").child(O.getOrder_id()).setValue(O);
 
 
                 startActivity(new Intent(getApplicationContext(),Client_Activity.class));
