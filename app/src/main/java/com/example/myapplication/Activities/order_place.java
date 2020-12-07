@@ -33,6 +33,7 @@ import java.util.Map;
 public class order_place extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     EditText order_meal;
+    EditText num_people;
     DatePicker date;
     Spinner time;
     Button order;
@@ -49,6 +50,7 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
 
         //view by id
         order_meal=findViewById(R.id.order_meal);
+        num_people=findViewById(R.id.order_meal2);
         date=findViewById(R.id.datePicker1);
         time=findViewById(R.id.spinnertime);
         order=findViewById(R.id.order_place1);
@@ -101,16 +103,21 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
             public void onClick(View v) {
                 //get all the value
                 String order_message=order_meal.getText().toString();
+                String numP = num_people.getText().toString();
                 String time_order=time.getSelectedItem().toString();
                 String month=(date.getMonth()+1)+"";
                 String year=date.getYear()+"";
                 String day=date.getDayOfMonth()+"";
+
+
 
                 //getting restaurant name from the last activity
                 String Rest_name = sp.getString("restaurant name", "");
 
                 gettingid();
                 System.out.println("u:"+id_client+", c" +id_Bus);
+
+
 
 
 
