@@ -67,7 +67,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
 
                 String user_mail = mail.getText().toString();
                 String user_password = password.getText().toString();
-                String type = spinner_type.getSelectedItem().toString();
+
                 //checking error
                 if (TextUtils.isEmpty(user_mail)) {
                     mail.setError("Email isn't vaild");
@@ -89,6 +89,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
                             if (task.isSuccessful()) {
                                 String user_id=fAuth.getUid();
                                 DB_users.isClient(user_id);
+                                String type = spinner_type.getSelectedItem().toString();
                                 if (type.equals("לקוח") && DB_users.isC) {
                                     startActivity(new Intent(getApplicationContext(), Client_Activity.class));
                                 }
