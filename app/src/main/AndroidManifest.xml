@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".Activities.change_my_rest"></activity>
+        <activity android:name=".Activities.diary_client"></activity>
+        <activity android:name=".Activities.change_my_rest" />
         <activity android:name=".Activities.rest_diary" />
         <activity android:name=".Activities.order_place" />
         <activity android:name=".Activities.Client_Activity" />

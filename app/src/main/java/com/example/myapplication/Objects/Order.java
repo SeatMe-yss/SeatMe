@@ -87,10 +87,10 @@ package com.example.myapplication.Objects;
     }
 
     public String getOrder_meal() {
-        return Order_meal;
+        return this.Order_meal;
     }
 
-    public void setOrder_meal(String phone) { Order_meal = Order_meal; }
+    public void setOrder_meal(String Order_meal) { this.Order_meal = Order_meal; }
 
 
 
@@ -98,10 +98,10 @@ package com.example.myapplication.Objects;
 
     @Override
     public String toString() {
-        return "order{" +
-                "order_id='" + getOrder_id() + '\'' +
-                ", time='" + getTime() + '\'' +
-                '}';
+        return "Time: " + getTime() +
+                "\nDate: " + getDay() +  "." + getMonth() + "." + getYear() +
+                "\nOrder meal: " + getOrder_meal();
+
     }
 
 

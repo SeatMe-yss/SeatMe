@@ -120,6 +120,12 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
             finish();
 
         }
+        else if(v==myOrder){
+            Intent intent= new Intent(this, diary_client.class );
+            startActivity(intent);
+
+        }
+        
         else if(v==menu){//just checking
             String r=spinner_rest.getSelectedItem().toString();
 
