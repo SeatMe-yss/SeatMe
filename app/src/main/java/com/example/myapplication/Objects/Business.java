@@ -11,8 +11,7 @@ public class Business {
     public String id;
     public String name_rest;
     public List<Order> Orders=new ArrayList<>();
-    public List<Integer>tables;
-
+    public int max_people;
 
     public Business() {};
 
@@ -58,9 +57,7 @@ public class Business {
         this.Orders.add(o);
     }
 
-    public void gettable(List<Integer> table){
-        tables.addAll(table);
-    }
+    public int getmax_people(){ return this.max_people ;}
 
-
+    public void setMax_people(int max_people) { this.max_people = max_people; }
 }
