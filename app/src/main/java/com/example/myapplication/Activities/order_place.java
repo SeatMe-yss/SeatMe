@@ -97,15 +97,12 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
 
         order.setOnClickListener(new View.OnClickListener(){
 
-
-
-
             @Override
             public void onClick(View v) {
                 //get all the value
                 String order_message=order_meal.getText().toString();
                 String time_order=time.getSelectedItem().toString();
-                String month=date.getMonth()+"";
+                String month=(date.getMonth()+1)+"";
                 String year=date.getYear()+"";
                 String day=date.getDayOfMonth()+"";
 

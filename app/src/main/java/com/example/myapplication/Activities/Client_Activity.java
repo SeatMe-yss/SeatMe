@@ -125,7 +125,7 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
             startActivity(intent);
 
         }
-        
+
         else if(v==menu){//just checking
             String r=spinner_rest.getSelectedItem().toString();
 

@@ -9,13 +9,16 @@ public class Client {
     public String id;
     public List<Order> Orders;
 
-    public Client() {};
+    public Client() {
+    }
 
-    public Client(String mail, String password,String phone, String id) {
+    ;
+
+    public Client(String mail, String password, String phone, String id) {
         this.mail = mail;
         this.password = password;
-        this.phone=phone;
-        this.id=id;
+        this.phone = phone;
+        this.id = id;
     }
 
 
@@ -39,23 +42,26 @@ public class Client {
         return phone;
     }
 
-    public void setPhone(String phone) { this.phone = phone; }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-    public String getId(){return id;}
+    public String getId() {
+        return id;
+    }
 
-    public void addOrder(Order o){
+    public void addOrder(Order o) {
         this.Orders.add(o);
     }
 
 
-
     @Override
     public String toString() {
-        return "User{" +
-                "mail='" + mail + '\'' +
-                ", password='" + password + '\'' +
-                ", phone="+phone+'\''+
-                '}';
-    }
+        String ans="";
+        for (Order o : Orders) {
+            ans=ans + o.toString();
+        }
+        return ans;
 
+    }
 }

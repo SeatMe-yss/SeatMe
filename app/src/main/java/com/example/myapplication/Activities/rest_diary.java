@@ -37,6 +37,10 @@ public class rest_diary extends AppCompatActivity {
     ListView listView;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
+    FirebaseAuth fauth;
+    String id_buss;
+
+
 
 
     @Override
@@ -44,7 +48,11 @@ public class rest_diary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rest_diary);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Orders").child("BBB");
+        fauth= FirebaseAuth.getInstance();
+        id_buss=fauth.getUid().toString();
+
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Orders").child(id_buss);
         listView = (ListView) findViewById(R.id.lists);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
