@@ -13,89 +13,92 @@
 
 
     <DatePicker
-            android:id="@+id/datePicker1"
-            android:layout_width="379dp"
-            android:layout_height="140dp"
-            android:background="#FFFFFF"
-            android:datePickerMode="spinner"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.282" />
+        android:id="@+id/datePicker1"
+        android:layout_width="379dp"
+        android:layout_height="140dp"
+        android:background="#FFFFFF"
+        android:datePickerMode="spinner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.232" />
 
-        <Button
-            android:id="@+id/order_place1"
-            android:layout_width="249dp"
-            android:layout_height="44dp"
-            android:text="הזמן מקום"
-            android:textColor="@color/black"
-            app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/order_meal"
-            app:layout_constraintStart_toStartOf="@+id/order_meal"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.876" />
-
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/order_meal"
         android:layout_width="368dp"
         android:layout_height="49dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginBottom="168dp"
+        android:layout_marginTop="23dp"
         android:background="@color/white"
         android:hint="הזן את הזמנתך מראש"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/order_meal2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/order_meal2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.737"
         tools:visibility="visible" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/order_meal2"
         android:layout_width="368dp"
         android:layout_height="49dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginBottom="168dp"
         android:background="@color/white"
         android:hint="כמה תהיו?"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873"
+        app:layout_constraintVertical_bias="0.601"
         tools:visibility="visible" />
 
     <Spinner
         android:id="@+id/spinnertime"
         android:layout_width="367dp"
         android:layout_height="50dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="41dp"
         android:background="@color/white"
         android:textColor="@color/black"
         android:visibility="visible"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.535"
+        app:layout_constraintVertical_bias="0.449"
         tools:visibility="visible" />
 
-
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="137dp"
-        android:layout_height="104dp"
+            android:id="@+id/imageView"
+            android:layout_width="137dp"
+            android:layout_height="104dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@mipmap/seatme_logo" />
+
+    <Button
+        android:id="@+id/order_place1"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:text="הזמנת מקום"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/order_meal"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toStartOf="@+id/order_meal"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@mipmap/seatme_logo" />
+        app:layout_constraintVertical_bias="0.887" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

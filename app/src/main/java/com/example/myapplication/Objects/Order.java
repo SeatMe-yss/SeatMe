@@ -7,22 +7,23 @@ package com.example.myapplication.Objects;
     String time;
     String year,day,month;
     String Id_Client, Id_Bus;
+    int people;
 
 
      public String getId_Bus() {
-         return Id_Bus;
+         return this.Id_Bus;
      }
 
      public String getId_Client() {
-         return Id_Client;
+         return this.Id_Client;
      }
 
      public void setId_Bus(String id_Bus) {
-         Id_Bus = id_Bus;
+         this.Id_Bus = id_Bus;
      }
 
      public void setId_Client(String id_Client) {
-         Id_Client = id_Client;
+         this.Id_Client = id_Client;
      }
 
      public String getTime() {
@@ -58,7 +59,7 @@ package com.example.myapplication.Objects;
     }
 
     public Order(){}
-    public Order(String rest_name,String Order_meal, String Id_Client, String Id_Bus , String time,String year,String month, String day ) {
+    public Order(String rest_name,String Order_meal, String Id_Client, String Id_Bus , String time,String year,String month, String day) {
         this.Rest_name = rest_name;
         this.Order_meal=Order_meal;
         this.time=time;
@@ -83,7 +84,7 @@ package com.example.myapplication.Objects;
     }
 
     public String getRest_name() {
-        return Rest_name;
+        return this.Rest_name;
     }
 
     public String getOrder_meal() {
@@ -92,15 +93,15 @@ package com.example.myapplication.Objects;
 
     public void setOrder_meal(String Order_meal) { this.Order_meal = Order_meal; }
 
+     public int getPeople(){ return this.people;}
 
+     public void setPeople(int people) { this.people = people; }
 
-
-
-    @Override
+     @Override
     public String toString() {
         return "Time: " + getTime() +
                 "\nDate: " + getDay() +  "." + getMonth() + "." + getYear() +
-                "\nOrder meal: " + getOrder_meal();
+                "\nOrder meal: " + getOrder_meal() +"\n Number of people: "+getPeople();
 
     }
 

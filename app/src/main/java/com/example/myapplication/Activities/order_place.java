@@ -16,6 +16,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.myapplication.DB.DB_Business;
 import com.example.myapplication.DB.DB_Orders;
@@ -41,7 +42,7 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
     SharedPreferences sp;
 
     //
-    String id_Bus ,  id_client;
+    String id_Bus ,  id_client; int max_people_r;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,15 +78,11 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                     String a = ds.child("name_rest").getValue(String.class);
                     if (ds.child("name_rest").getValue(String.class).equals(Rest_name)) {
                         id_Bus = ds.child("id").getValue(String.class);
+                        max_people_r=ds.child("max_people").getValue(Integer.class); //getting the max people in res
 
                     }
                 }
 
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    String a = ds.child("name_rest").getValue(String.class);
-                    System.out.println(a);
-
-                }
             }
 
             @Override
@@ -102,14 +99,12 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onClick(View v) {
                 //get all the value
+                int numP=Integer.parseInt(num_people.getText().toString());
                 String order_message=order_meal.getText().toString();
-                String numP = num_people.getText().toString();
                 String time_order=time.getSelectedItem().toString();
                 String month=(date.getMonth()+1)+"";
                 String year=date.getYear()+"";
                 String day=date.getDayOfMonth()+"";
-
-
 
                 //getting restaurant name from the last activity
                 String Rest_name = sp.getString("restaurant name", "");
@@ -117,34 +112,61 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                 gettingid();
                 System.out.println("u:"+id_client+", c" +id_Bus);
 
-
-
-
-
                 //id client
                 id_client=fAuth.getUid().toString();
 
 
                 //get an new key
                 Order  O= new  Order( Rest_name, order_message,  id_client, id_Bus,  time_order, year, month,  day);
+                O.setPeople(numP);
                 String Uid=DB_model.get_DB().child("Orders").push().getKey();//maybe .child("orders")
                 O.setOrder_id(Uid);
 
-                //add the order to DB_
-               DB_Orders.addOrderToDB(O);
+                //checking if there is a place
+                DB_model.get_DB().getRef().child("Orders").child(id_Bus).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int Count=0;
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            String yo= ds.child("year").getValue(String.class);
+                            String mo=ds.child("month").getValue(String.class);
+                            String dO=ds.child("day").getValue(String.class);
+                            String tO=ds.child("time").getValue(String.class);
 
-               //add order to Business
-                Map<String,Object> mapB=new HashMap<>();
-                mapB.put("Orders", O);
-                DB_model.get_DB().getRef().child("Business").child(id_Bus).child("Orders").child(O.getOrder_id()).setValue(O);
-
-                //add order to client
-                Map<String,Object> mapC=new HashMap<>();
-                mapC.put("Orders", O);
-                DB_model.get_DB().getRef().child("Clients").child(id_client).child("Orders").child(O.getOrder_id()).setValue(O);
+                            if (O.getYear().equals(yo) && O.getMonth().equals(mo) && O.getDay().equals(dO) && O.getTime().equals(tO) ) {
+                                Count+=ds.child("people").getValue(Integer.class);
+                            }
+                        }
 
 
-                startActivity(new Intent(getApplicationContext(),Client_Activity.class));
+                        if(Count+O.getPeople()>max_people_r){
+
+                            num_people.setError("המסעדה בתפוסה מלא ");
+                        }else{
+                            //add the order to DB_
+                            DB_Orders.addOrderToDB(O);
+                            //add order to Business
+                            Map<String,Object> mapB=new HashMap<>();
+                            mapB.put("Orders", O);
+                            DB_model.get_DB().getRef().child("Business").child(id_Bus).child("Orders").child(O.getOrder_id()).setValue(O);
+
+                            //add order to client
+                            Map<String,Object> mapC=new HashMap<>();
+                            mapC.put("Orders", O);
+                            DB_model.get_DB().getRef().child("Clients").child(id_client).child("Orders").child(O.getOrder_id()).setValue(O);
+
+
+                            startActivity(new Intent(getApplicationContext(),Client_Activity.class));
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
             }
         });
@@ -154,12 +176,6 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
         }
 
         public void gettingid(){
-            //getting the id of rest
-            //getting restaurant name from the last activity
-
-
-
-            //id client
             id_client=fAuth.getUid().toString();
 
         }

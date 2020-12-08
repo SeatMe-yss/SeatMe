@@ -2,6 +2,7 @@ package com.example.myapplication.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -58,6 +59,8 @@ public class change_my_rest extends AppCompatActivity {
                 Map<String,Integer> map1=new HashMap<>();
                 map.put("max_people", max_people);
                 DB_model.get_DB().getRef().child("Business").child(u).updateChildren(map);
+                //pass to the screen before
+                startActivity(new Intent(getApplicationContext(), activity_rest.class));
 
 
             }
