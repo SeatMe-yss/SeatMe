@@ -75,8 +75,8 @@ package com.example.myapplication.Objects;
         this.Order_id=Order_id;
     }
 
-    public static String getOrder_id() {
-        return  Order_id;
+    public String getOrder_id() {
+        return this.Order_id;
     }
 
     public void setRest_name(String Rest_name) {
@@ -101,7 +101,9 @@ package com.example.myapplication.Objects;
     public String toString() {
         return "Time: " + getTime() +
                 "\nDate: " + getDay() +  "." + getMonth() + "." + getYear() +
-                "\nOrder meal: " + getOrder_meal() +"\n Number of people: "+getPeople();
+                "\nOrder meal: " + getOrder_meal() +
+                "\nNumber of people: "+getPeople() +
+                "\nOrder Id: " + getOrder_id();
 
     }
 

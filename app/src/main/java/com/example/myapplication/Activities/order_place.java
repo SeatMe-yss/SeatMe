@@ -107,7 +107,7 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                 String Rest_name = sp.getString("restaurant name", "");
 
                 gettingid();
-                System.out.println("u:"+id_client+", c" +id_Bus);
+                //System.out.println("u:"+id_client+", c" +id_Bus);
 
                 //id client
                 id_client=fAuth.getUid().toString();
@@ -142,6 +142,7 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                         }else{
                             //add the order to DB_
                             DB_Orders.addOrderToDB(O);
+
                             //add order to Business
                             Map<String,Object> mapB=new HashMap<>();
                             mapB.put("Orders", O);

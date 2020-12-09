@@ -23,6 +23,18 @@ public class DB_users extends DB_model {
         DB_model.get_DB().getRef().child("Clients").child(id).setValue(C);
 
     }
+
+
+    public static void RemoveClientOrderFromDB(String id_client, String id_order){
+        DB_model.get_DB().getRef().child("Clients").child(id_client).child("Orders").child(id_order).setValue(null);;
+
+
+
+    }
+
+
+
+
     public static DatabaseReference check_isClient(){
         String user_id=FirebaseAuth.getInstance().getCurrentUser().getUid();
         return  DB_model.get_DB().getRef().child("Clients").child(user_id);
