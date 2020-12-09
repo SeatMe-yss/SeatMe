@@ -11,10 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.myapplication.DB.DB_Business;
 import com.example.myapplication.DB.DB_model;
 import com.example.myapplication.DB.DB_users;
@@ -25,6 +23,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 
 public class login extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 

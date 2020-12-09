@@ -3,11 +3,9 @@ package com.example.myapplication.Activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.example.myapplication.Objects.Client;
 import com.example.myapplication.Objects.Order;
 import com.example.myapplication.R;
@@ -17,8 +15,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
+
 
 public class diary_client extends AppCompatActivity {
     DatabaseReference databaseReference;
