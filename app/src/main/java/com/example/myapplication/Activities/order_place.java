@@ -90,8 +90,6 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
         });
 
 
-
-
         order.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -162,14 +160,8 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                             //finish();
                            // order_place.super.onBackPressed();
 
-
-
-
-
-
                         }
                     }
-
 
 
                     @Override
@@ -180,9 +172,6 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
 
             }
         });
-
-
-
     }
 
 
@@ -190,24 +179,20 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
 
     public void gettingid(){
             id_client=fAuth.getUid().toString();
-
-        }
+}
 
     @Override
     public void onClick(View v) {
-
-
 
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         DatePicker date=findViewById(R.id.datePicker1);
-
     }
+
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
 }

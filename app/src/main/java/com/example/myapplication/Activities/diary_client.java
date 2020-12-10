@@ -51,10 +51,6 @@ public class diary_client extends AppCompatActivity {
         fAuth= FirebaseAuth.getInstance();
         id_client=fAuth.getUid().toString();
 
-        //sp=getSharedPreferences("restaurant name", Context.MODE_PRIVATE);
-        //String Rest_name = sp.getString("restaurant name", "");
-
-
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Clients").child(id_client).child("Orders");
         listView = (ListView) findViewById(R.id.lists1);
@@ -95,12 +91,10 @@ public class diary_client extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final int which_item = position;
-                //id_client = fAuth.getUid().toString();
 
                 String choise =(listView.getItemAtPosition(position).toString());
                 String id_order = find_id(choise);
                 String id_Bus = find_idBus(choise);
-
 
                 new AlertDialog.Builder(diary_client.this)
                         .setIcon(android.R.drawable.ic_delete)
@@ -114,31 +108,18 @@ public class diary_client extends AppCompatActivity {
 
                                 System.out.println("id c:" + id_client + "\nid order:" + id_order + "\nid b:" + id_Bus);
 
-                               // DB_users.RemoveClientOrderFromDB(id_client,id_order);
-                                DB_model.get_DB().getRef().child("Clients").child(id_client).child("Orders").child(id_order).setValue(null);
-                                DB_model.get_DB().getRef().child("Business").child(id_Bus).child("Orders").child(id_order).setValue(null);
-                                //DB_Orders.RemoveOrderFromDB(id_Bus, id_order);
-                                DB_model.get_DB().getRef().child("Orders").child(id_Bus).child(id_order).setValue(null);
-                                //DB_Business.RemoveBusOrderFromDB(id_Bus,id_order);
-
-
-
-
+                                DB_users.RemoveClientOrderFromDB(id_client,id_order);
+                                DB_Orders.RemoveOrderFromDB(id_Bus, id_order);
+                                DB_Business.RemoveBusOrderFromDB(id_Bus,id_order);
 
                             }
                         })
 
                         .setNegativeButton("No", null)
                         .show();
-
-
             }
-
-
         });
-
     }
-
 
 
 
