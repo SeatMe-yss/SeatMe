@@ -43,7 +43,6 @@ public class diary_client extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter;
     String id_client;
     FirebaseAuth fAuth;
-    String id_Bus;
     SharedPreferences sp;
 
 
@@ -55,26 +54,8 @@ public class diary_client extends AppCompatActivity {
         fAuth= FirebaseAuth.getInstance();
         id_client=fAuth.getUid().toString();
 
-        sp=getSharedPreferences("restaurant name", Context.MODE_PRIVATE);
-        String Rest_name = sp.getString("restaurant name", "");
-
-        DB_model.get_DB().getRef().child("Business").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    String a = ds.child("name_rest").getValue(String.class);
-                    if (ds.child("name_rest").getValue(String.class).equals(Rest_name)) {
-                        id_Bus = ds.child("id").getValue(String.class);
-                    }
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        //sp=getSharedPreferences("restaurant name", Context.MODE_PRIVATE);
+        //String Rest_name = sp.getString("restaurant name", "");
 
 
 
@@ -121,7 +102,8 @@ public class diary_client extends AppCompatActivity {
 
                 String choise =(listView.getItemAtPosition(position).toString());
                 String id_order = find_id(choise);
-                System.out.println("Syso id:" + id_order);
+                String id_Bus = find_idBus(choise);
+
 
                 new AlertDialog.Builder(diary_client.this)
                         .setIcon(android.R.drawable.ic_delete)
@@ -133,7 +115,8 @@ public class diary_client extends AppCompatActivity {
                                 arrayList.remove(which_item);
                                 arrayAdapter.notifyDataSetChanged();
 
-                                System.out.println("id c:" + id_client + "\nid order:" + id_order + "\nid b:" + id_Bus + "\nid o:" + id_order);
+                                System.out.println("id c:" + id_client + "\nid order:" + id_order + "\nid b:" + id_Bus);
+
                                 DB_users.RemoveClientOrderFromDB(id_client,id_order);
                                 DB_Orders.RemoveOrderFromDB(id_Bus, id_order);
                                 DB_Business.RemoveBusOrderFromDB(id_Bus,id_order);
@@ -150,44 +133,51 @@ public class diary_client extends AppCompatActivity {
 
         });
 
-//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-//        Query applesQuery = ref.child("Orders").child(id_Bus).child("-MO8TpSVkSIFE_O1gS4M1gS4M").equalTo("-MO8TpSVkSIFE_O1gS4M1gS4M");
-//
-//        applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-//                    appleSnapshot.getRef().removeValue();
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                //Log.e(TAG, "onCancelled", databaseError.toException());
-//            }
-//        });
-
     }
 
+
+
+
     public static String find_id(String choise) {
-        char c = ' ';
+        String temp = "";
         String id_order = "";
         int j = 0;
 
         for (int i = 0; i < choise.length(); i++) {
-            c = choise.charAt(i);
-            //System.out.println("c = " +c);
-            if (c == 'I') {
-                j = i+4;
+            temp += choise.charAt(i);
+            if (temp.contains("מספר הזמנה: ")) {
+                j = i+1;
+                while (!id_order.contains("מ")) {
+                    id_order += choise.charAt(j);
+                    j++;
+
+                }
+                id_order = id_order.substring(0, id_order.length()-2);
+                return id_order;
+            }
+        }
+        return id_order;
+
+    }
+
+
+    public static String find_idBus(String choise) {
+        String temp = "";
+        String id_order = "";
+        int j = 0;
+
+        for (int i = 0; i < choise.length(); i++) {
+            temp += choise.charAt(i);
+            if (temp.contains("מזהה מסעדה: ")) {
+                j = i+1;
                 while (j != choise.length()) {
                     id_order += choise.charAt(j);
-                    //System.out.println("id order = " +id_order);
                     j++;
                 }
                 return id_order;
             }
         }
-        System.out.println("id order sysoo:" + id_order);
+
         return id_order;
 
     }

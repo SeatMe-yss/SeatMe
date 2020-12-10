@@ -20,13 +20,12 @@ public class DB_Orders {
     public static void addOrderToDB(Order O){
         DB_model.get_DB().getRef().child("Orders").child(O.getId_Bus()).child(O.getOrder_id()).setValue(O);
         O.setOrder_id(O.getOrder_id());
-        System.out.println("hereee");
 
     }
 
 
     public static void RemoveOrderFromDB(String id_rest, String id_order){
-        DB_model.get_DB().getRef().child("Orders").child(id_rest).child(id_order).removeValue();
+        DB_model.get_DB().getRef().child("Orders").child(id_rest).child(id_order).setValue(null);
 
     }
 

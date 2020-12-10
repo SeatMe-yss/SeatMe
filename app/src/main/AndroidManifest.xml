@@ -14,7 +14,7 @@
         <activity android:name=".Activities.diary_client"></activity>
         <activity android:name=".Activities.change_my_rest" />
         <activity android:name=".Activities.rest_diary" />
-        <activity android:name=".Activities.order_place" />
+        <activity android:name=".Activities.order_place" android:noHistory="true"/>
         <activity android:name=".Activities.Client_Activity" />
         <activity android:name=".Activities.login_register" />
         <activity android:name=".Activities.menue_client" />

@@ -2,6 +2,8 @@ package com.example.myapplication.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -37,14 +39,13 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
     Button order;
     FirebaseAuth fAuth;
     SharedPreferences sp;
-
-    //
     String id_Bus ,  id_client; int max_people_r;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_place);
+        System.out.println("Enter to order place");
 
         //view by id
         order_meal=findViewById(R.id.order_meal);
@@ -154,10 +155,11 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                             DB_model.get_DB().getRef().child("Clients").child(id_client).child("Orders").child(O.getOrder_id()).setValue(O);
 
 
-                            startActivity(new Intent(getApplicationContext(),Client_Activity.class));
+                            //startActivity(new Intent(getApplicationContext(),Client_Activity.class));
+                            startActivity(new Intent(order_place.this, Client_Activity.class));
+
 
                         }
-
                     }
 
                     @Override
@@ -170,10 +172,12 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
         });
 
 
-
         }
 
-        public void gettingid(){
+
+
+
+    public void gettingid(){
             id_client=fAuth.getUid().toString();
 
         }

@@ -104,7 +104,8 @@ package com.example.myapplication.Objects;
                  "\nתאריך: " + getDay() +  "." + getMonth() + "." + getYear() +
                  "\nהזמנה מראש: " + getOrder_meal() +
                  "\nמספר אנשים: "+getPeople() +
-                 "\nOrder Id: " + getOrder_id();
+                 "\nמספר הזמנה: " + getOrder_id() +
+                "\nמזהה מסעדה: " + getId_Bus();
 
      }
 
