@@ -2,7 +2,6 @@ package com.example.myapplication.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +28,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class order_place extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
@@ -156,11 +156,21 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
 
 
                             //startActivity(new Intent(getApplicationContext(),Client_Activity.class));
-                            startActivity(new Intent(order_place.this, Client_Activity.class));
+
+
+                         startActivity(new Intent(order_place.this, Client_Activity.class));
+                            //finish();
+                           // order_place.super.onBackPressed();
+
+
+
+
 
 
                         }
                     }
+
+
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -172,7 +182,8 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
         });
 
 
-        }
+
+    }
 
 
 

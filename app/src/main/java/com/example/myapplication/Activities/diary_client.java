@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.ListMenuItemView;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -16,7 +15,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.example.myapplication.DB.DB_Business;
 import com.example.myapplication.DB.DB_Orders;
 import com.example.myapplication.DB.DB_model;
@@ -32,7 +30,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
 
@@ -117,9 +114,16 @@ public class diary_client extends AppCompatActivity {
 
                                 System.out.println("id c:" + id_client + "\nid order:" + id_order + "\nid b:" + id_Bus);
 
-                                DB_users.RemoveClientOrderFromDB(id_client,id_order);
-                                DB_Orders.RemoveOrderFromDB(id_Bus, id_order);
-                                DB_Business.RemoveBusOrderFromDB(id_Bus,id_order);
+                               // DB_users.RemoveClientOrderFromDB(id_client,id_order);
+                                DB_model.get_DB().getRef().child("Clients").child(id_client).child("Orders").child(id_order).setValue(null);
+                                DB_model.get_DB().getRef().child("Business").child(id_Bus).child("Orders").child(id_order).setValue(null);
+                                //DB_Orders.RemoveOrderFromDB(id_Bus, id_order);
+                                DB_model.get_DB().getRef().child("Orders").child(id_Bus).child(id_order).setValue(null);
+                                //DB_Business.RemoveBusOrderFromDB(id_Bus,id_order);
+
+
+
+
 
                             }
                         })
