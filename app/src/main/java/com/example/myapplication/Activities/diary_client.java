@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,6 +30,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -131,10 +133,12 @@ public class diary_client extends AppCompatActivity {
                                 arrayList.remove(which_item);
                                 arrayAdapter.notifyDataSetChanged();
 
-                                DB_Orders.RemoveOrderFromDB(id_order);
                                 System.out.println("id c:" + id_client + "\nid order:" + id_order + "\nid b:" + id_Bus + "\nid o:" + id_order);
                                 DB_users.RemoveClientOrderFromDB(id_client,id_order);
                                 DB_Business.RemoveBusOrderFromDB(id_Bus,id_order);
+                                DB_Orders.RemoveOrderFromDB(id_Bus, id_order);
+
+
                             }
                         })
 
@@ -147,6 +151,22 @@ public class diary_client extends AppCompatActivity {
 
         });
 
+//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+//        Query applesQuery = ref.child("Orders").child(id_Bus).child("-MO8TpSVkSIFE_O1gS4M1gS4M").equalTo("-MO8TpSVkSIFE_O1gS4M1gS4M");
+//
+//        applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
+//                    appleSnapshot.getRef().removeValue();
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                //Log.e(TAG, "onCancelled", databaseError.toException());
+//            }
+//        });
 
     }
 
@@ -165,6 +185,7 @@ public class diary_client extends AppCompatActivity {
                     //System.out.println("id order = " +id_order);
                     j++;
                 }
+                return id_order;
             }
         }
         System.out.println("id order sysoo:" + id_order);
