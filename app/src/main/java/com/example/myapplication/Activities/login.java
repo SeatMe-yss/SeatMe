@@ -21,8 +21,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class login extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -32,6 +35,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
     Spinner spinner_type;
     String[] types;
     FirebaseAuth fAuth;
+    boolean isC1=false;
 
 
 
@@ -87,21 +91,57 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 String user_id=fAuth.getUid();
-                                DB_users.isClient(user_id);
+                                // DB_users.isClient(user_id);
                                 String type = spinner_type.getSelectedItem().toString();
-                                if (type.equals("לקוח") && DB_users.isC) {
-                                    startActivity(new Intent(getApplicationContext(), Client_Activity.class));
-                                }
-                                else if (type.equals("בית עסק") && !DB_users.isC ) {
-                                    startActivity(new Intent(getApplicationContext(), activity_rest.class));
-                                }
-                                else{
-                                    ((TextView)spinner_type.getSelectedView()).setError("המשתמש שנבחר אינו מתאים");
-                                }
+                                //check if it is a client
+                                DB_model.get_DB().child("Clients").addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                        for(DataSnapshot s: snapshot.getChildren()){
+                                            if(s.child("id").getValue().equals(user_id) && type.equals("לקוח")){
+//                                                isC1=true;
+                                                startActivity(new Intent(getApplicationContext(), Client_Activity.class));
+                                            }
+
+                                        }
+
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+
+                                //check it is a Business
+                                DB_model.get_DB().child("Business").addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                        for(DataSnapshot s: snapshot.getChildren()){
+                                            if(s.child("id").getValue().equals(user_id) && type.equals("בית עסק")){
+                                                startActivity(new Intent(getApplicationContext(), activity_rest.class));
+                                            }
+
+                                        }
+
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+//                                    ((TextView)spinner_type.getSelectedView()).setError("המשתמש שנבחר אינו מתאים");
 
                             } else {
-                                 mail.setError("המייל או הסיסמה אינם תקינים");
-                                 password.setError("המייל או הסיסמה אינם תקינים");
+                                mail.setError("המייל או הסיסמה אינם תקינים");
+                                password.setError("המייל או הסיסמה אינם תקינים");
 
                             }
                         }

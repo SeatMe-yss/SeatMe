@@ -135,9 +135,8 @@ public class diary_client extends AppCompatActivity {
 
                                 System.out.println("id c:" + id_client + "\nid order:" + id_order + "\nid b:" + id_Bus + "\nid o:" + id_order);
                                 DB_users.RemoveClientOrderFromDB(id_client,id_order);
-                                DB_Business.RemoveBusOrderFromDB(id_Bus,id_order);
                                 DB_Orders.RemoveOrderFromDB(id_Bus, id_order);
-
+                                DB_Business.RemoveBusOrderFromDB(id_Bus,id_order);
 
                             }
                         })

@@ -44,13 +44,13 @@ public class DB_users extends DB_model {
 
 
     public static void isClient(String id1) {
-        DatabaseReference dr= DB_users.check_isClient();
-        String id_us = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference dr= DB_model.get_DB().getRef().child("Clients").child(id1);
+        //String id_us = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         dr.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){//is exist in the clients
+                if(dataSnapshot.exists()){
                     DB_users.isC=true;
                 }
                 else{
