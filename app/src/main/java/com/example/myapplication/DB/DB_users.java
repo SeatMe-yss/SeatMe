@@ -35,27 +35,30 @@ public class DB_users extends DB_model {
 
 
 
-    public static DatabaseReference check_isClient(){
-        String user_id=FirebaseAuth.getInstance().getCurrentUser().getUid();
-        return  DB_model.get_DB().getRef().child("Clients").child(user_id);
-    }
+//    public static DatabaseReference check_isClient(){
+//        String user_id=FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        return  DB_model.get_DB().getRef().child("Clients").child(user_id);
+//    }
 
 
 
 
     public static void isClient(String id1) {
-        DatabaseReference dr= DB_users.check_isClient();
-        String id_us = FirebaseAuth.getInstance().getCurrentUser().getUid();
+       DatabaseReference dr= DB_model.get_DB().getRef().child("Clients").child(id1);
+       // String id_us = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         dr.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){//is exist in the clients
-                    DB_users.isC=true;
-                }
-                else{
-                    DB_users.isC=false;
-                }
+
+//                if(dataSnapshot.hasChild(id1)){//is exist in the clients
+//                    System.out.println("gaga");
+//                    DB_users.isC=true;
+//                }
+//                else{
+//                    DB_users.isC=false;
+//                    System.out.println("yaya");
+//                }
 
 
             }

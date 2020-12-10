@@ -21,8 +21,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class login extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -32,6 +35,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
     Spinner spinner_type;
     String[] types;
     FirebaseAuth fAuth;
+    boolean isC1=false;
 
 
 
@@ -87,13 +91,38 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 String user_id=fAuth.getUid();
-                                DB_users.isClient(user_id);
-                                String type = spinner_type.getSelectedItem().toString();
-                                if (type.equals("לקוח") && DB_users.isC) {
+                               // DB_users.isClient(user_id);
+
+                                DB_model.get_DB().child("Clients").addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                        for(DataSnapshot s: snapshot.getChildren()){
+                                            if(s.child("id").getValue().equals(user_id)){
+                                                isC1=true;
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+                               String type = spinner_type.getSelectedItem().toString();
+                                System.out.println(type);
+                                if (type.equals("לקוח") && isC1) {
+                                    System.out.println(isC1);
                                     startActivity(new Intent(getApplicationContext(), Client_Activity.class));
                                 }
-                                else if (type.equals("בית עסק") && !DB_users.isC ) {
+                                else if (type.equals("בית עסק") && !isC1 ) {
+                                    System.out.println(isC1);
                                     startActivity(new Intent(getApplicationContext(), activity_rest.class));
+
                                 }
                                 else{
                                     ((TextView)spinner_type.getSelectedView()).setError("המשתמש שנבחר אינו מתאים");

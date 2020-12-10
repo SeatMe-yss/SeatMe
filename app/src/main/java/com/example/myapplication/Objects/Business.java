@@ -13,6 +13,9 @@ public class Business {
     public List<Order> Orders=new ArrayList<>();
     public int max_people;
 
+
+
+
     public Business() {};
 
     public Business(String mail, String password,String phone, String id) {
@@ -60,4 +63,7 @@ public class Business {
     public int getmax_people(){ return this.max_people ;}
 
     public void setMax_people(int max_people) { this.max_people = max_people; }
+
+
+
 }
