@@ -9,6 +9,10 @@ public class Client {
     public String id;
     public List<Order> Orders;
 
+
+
+
+
     public Client() {
     }
 
@@ -53,6 +57,7 @@ public class Client {
     public void addOrder(Order o) {
         this.Orders.add(o);
     }
+
 
 
     @Override

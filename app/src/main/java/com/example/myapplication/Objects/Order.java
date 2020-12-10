@@ -98,14 +98,15 @@ package com.example.myapplication.Objects;
      public void setPeople(int people) { this.people = people; }
 
      @Override
-    public String toString() {
-        return "Time: " + getTime() +
-                "\nDate: " + getDay() +  "." + getMonth() + "." + getYear() +
-                "\nOrder meal: " + getOrder_meal() +
-                "\nNumber of people: "+getPeople() +
-                "\nOrder Id: " + getOrder_id();
+     public String toString() {
+         return "שם המסעדה :" + getRest_name()+
+                 "\nשעה :" + getTime() +
+                 "\nתאריך: " + getDay() +  "." + getMonth() + "." + getYear() +
+                 "\nהזמנה מראש: " + getOrder_meal() +
+                 "\nמספר אנשים: "+getPeople() +
+                 "\nOrder Id: " + getOrder_id();
 
-    }
+     }
 
 
 
