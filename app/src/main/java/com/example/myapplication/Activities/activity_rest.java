@@ -10,7 +10,7 @@ import android.widget.Button;
 
 
 public class activity_rest extends AppCompatActivity implements View.OnClickListener {
-    Button menu;
+//    Button menu;
     Button review;
     Button diary;
     Button change;
@@ -20,15 +20,17 @@ public class activity_rest extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rest);
+
         //find view by id
-        menu=findViewById(R.id.my_menu);
+//        menu=findViewById(R.id.my_menu);
+
         review=findViewById(R.id.my_review);
         diary=findViewById(R.id.my_diary);
         change=findViewById(R.id.my_change);
         logout=findViewById(R.id.my_logout);
 
         //set on clicklistener
-        menu.setOnClickListener(this);
+//        menu.setOnClickListener(this);
         review.setOnClickListener(this);
         diary.setOnClickListener(this);
         change.setOnClickListener(this);
@@ -45,9 +47,9 @@ public class activity_rest extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
             finish();
         }
-        else if(v==menu){
-
-        }
+//        else if(v==menu){
+//
+//        }
         else if(v==review){
 
         }

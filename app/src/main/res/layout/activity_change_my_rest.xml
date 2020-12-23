@@ -26,8 +26,8 @@
 
     <EditText
         android:id="@+id/rest_name2"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_width="425dp"
+        android:layout_height="39dp"
         android:background="@color/white"
         android:text="שם המסעדה"
         android:visibility="visible"
@@ -35,21 +35,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintVertical_bias="0.207" />
 
 
     <EditText
         android:id="@+id/num_people"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_width="421dp"
+        android:layout_height="42dp"
         android:background="@color/white"
         android:text="מספר מקסימלי של אנשים"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.375" />
+        app:layout_constraintVertical_bias="0.297" />
 
     <ImageView
         android:id="@+id/imagemenu"
@@ -59,18 +60,16 @@
         android:layout_marginBottom="49dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.343"
+        app:layout_constraintVertical_bias="0.179"
         tools:srcCompat="@tools:sample/avatars" />
-
 
     <Button
         android:id="@+id/save"
         android:layout_width="230dp"
         android:layout_height="45dp"
-        android:layout_marginTop="327dp"
+        android:layout_marginTop="36dp"
         android:text="שמור שינויים"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,13 +77,12 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871" />
+        app:layout_constraintVertical_bias="0.845" />
 
     <Button
         android:id="@+id/change_menu_gal"
         android:layout_width="230dp"
         android:layout_height="45dp"
-        android:layout_marginTop="367dp"
         android:text="שנה תמונת תפריט מהגלריה"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,13 +90,13 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
+        app:layout_constraintVertical_bias="0.761" />
 
     <Button
         android:id="@+id/take_photo"
         android:layout_width="230dp"
         android:layout_height="45dp"
-        android:layout_marginTop="367dp"
+        android:layout_marginTop="34dp"
         android:text="צלם תפריט"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -106,7 +104,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.442" />
+        app:layout_constraintVertical_bias="0.662" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

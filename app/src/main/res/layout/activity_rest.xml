@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    >
+    ><![CDATA[
 
 
 
@@ -23,19 +23,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/my_menu"
-            android:layout_width="330dp"
-            android:layout_height="40dp"
-            android:text="עדכון תפריט"
-            android:textColor="@color/black"
-            app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.489"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.318" />
+
+        ]]>
 
         <Button
             android:id="@+id/my_diary"
@@ -49,7 +38,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/my_review"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.525" />
+            app:layout_constraintVertical_bias="0.476" />
 
         <Button
             android:id="@+id/my_review"
@@ -60,11 +49,9 @@
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/my_menu"
-            app:layout_constraintHorizontal_bias="0.673"
-            app:layout_constraintStart_toStartOf="@+id/my_menu"
+            app:layout_constraintStart_toStartOf="@+id/my_change"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.337" />
+            app:layout_constraintVertical_bias="0.234" />
 
         <Button
             android:id="@+id/my_logout"
@@ -78,7 +65,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/my_diary"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.629" />
+            app:layout_constraintVertical_bias="0.613" />
 
         <Button
             android:id="@+id/my_change"
@@ -107,4 +94,4 @@
             app:srcCompat="@mipmap/seatme_logo" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

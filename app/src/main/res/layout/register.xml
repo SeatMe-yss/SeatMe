@@ -13,10 +13,11 @@
     tools:context=".ui.login.LoginActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-43dp"
-        tools:layout_editor_absoluteY="92dp">
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp">
 
         <Spinner
             android:id="@+id/spinner2"
@@ -26,10 +27,9 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.437"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.575" />
+            app:layout_constraintVertical_bias="0.605" />
 
         <Button
             android:id="@+id/register2"
@@ -61,27 +61,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <EditText
-            android:id="@+id/password"
-            android:layout_width="330dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="26dp"
-            android:background="@color/white"
-            android:hint="@string/prompt_password"
-            android:imeActionLabel="@string/action_sign_in_short"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:selectAllOnFocus="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/useremail"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/useremail"
-            app:layout_constraintTop_toBottomOf="@+id/useremail"
-            app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
+        <EditText
             android:id="@+id/useremail"
             android:layout_width="330dp"
             android:layout_height="40dp"
@@ -90,11 +70,26 @@
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.489"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.300" />
+            app:layout_constraintVertical_bias="0.268"
+            tools:layout_editor_absoluteX="25dp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:hint="@string/prompt_password"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.377"
+            tools:layout_editor_absoluteX="25dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
             android:id="@+id/imageView"
