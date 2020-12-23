@@ -168,7 +168,13 @@ public class change_my_rest extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
                 File f = new File(currentPhotoPath);
                 menu_Image.setImageURI(Uri.fromFile(f));
+
                 Log.d("tag", "ABsolute Url of Image is " + Uri.fromFile(f));
+
+//                System.out.println("id :"+fAuth.getUid());
+                //save the string in real db menu
+                DB_model.get_DB().getRef().child("Business").child(fAuth.getUid()).child("Menu_url").setValue(Uri.fromFile(f).toString());
+
 
                 Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
                 Uri contentUri = Uri.fromFile(f);

@@ -12,6 +12,7 @@ public class Business {
     public String name_rest;
     public List<Order> Orders=new ArrayList<>();
     public int max_people;
+    public String Menu_url;
 
 
 
@@ -25,6 +26,7 @@ public class Business {
         this.name_rest=" ";
         this.id=id;
         this.Orders.add(new Order());
+        this.Menu_url="";
 
     }
 

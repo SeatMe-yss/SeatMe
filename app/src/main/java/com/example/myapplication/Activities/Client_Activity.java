@@ -124,17 +124,8 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
         }
 
         else if(v==menu){//just checking
-            String r=spinner_rest.getSelectedItem().toString();
-
-            if(r.equals("בחר מסעדה")) {
-                ((TextView)spinner_rest.getSelectedView()).setError("בחר מסעדה");
-
-            }
-            else{
-                Intent intent = new Intent(this, order_place.class);
-                startActivity(intent);
-
-            }
+            Intent intent= new Intent(this, menue_client.class );
+            startActivity(intent);
         }
 
 
