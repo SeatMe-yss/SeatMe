@@ -26,6 +26,18 @@
 
         ]]>
 
+
+
+        <include
+            android:id="@+id/menu_bar5"
+            layout="@layout/menu_bar"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </include>
         <Button
             android:id="@+id/my_diary"
             android:layout_width="330dp"

@@ -3,10 +3,16 @@ package com.example.myapplication.Activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -47,6 +53,8 @@ public class rest_diary extends AppCompatActivity {
 
         fauth= FirebaseAuth.getInstance();
         id_buss=fauth.getUid().toString();
+        Toolbar toolbar= findViewById(R.id.menu_bar6);
+        setSupportActionBar(toolbar);
 
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Orders").child(id_buss);
@@ -81,6 +89,43 @@ public class rest_diary extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    // create the 3 dots at login_register activity
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater= getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // click on some item un the menu bar
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(this, login_register.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.action_myOrders:
+                Intent intent1 = new Intent(this, rest_diary.class);
+                startActivity(intent1);
+                break;
+
+
+            case R.id.action_backToMain:
+                Intent intent2 = new Intent(this, activity_rest.class);
+                startActivity(intent2);
+                break;
+
+            default:
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 //        databaseReference.addValueEventListener(new ValueEventListener() {
