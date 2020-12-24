@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 import com.example.myapplication.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class login_register extends AppCompatActivity implements View.OnClickListener{
     Button login;
@@ -46,6 +47,28 @@ public class login_register extends AppCompatActivity implements View.OnClickLis
     // click on some item un the menu bar
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(this, login_register.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.action_myOrders:
+                Intent intent1 = new Intent(this, diary_client.class);
+                startActivity(intent1);
+                break;
+
+
+            case R.id.action_backToMain:
+                Intent intent2 = new Intent(this, Client_Activity.class);
+                startActivity(intent2);
+                break;
+
+            default:
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
