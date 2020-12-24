@@ -38,6 +38,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
         </include>
+
         <Button
             android:id="@+id/my_diary"
             android:layout_width="330dp"
@@ -50,7 +51,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/my_review"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.476" />
+            app:layout_constraintVertical_bias="0.63" />
 
         <Button
             android:id="@+id/my_review"
@@ -63,7 +64,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/my_change"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.234" />
+            app:layout_constraintVertical_bias="0.4" />
 
         <Button
             android:id="@+id/my_logout"
@@ -77,7 +78,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/my_diary"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.613" />
+            app:layout_constraintVertical_bias="0.79" />
 
         <Button
             android:id="@+id/my_change"
@@ -88,10 +89,10 @@
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.216" />
+            app:layout_constraintVertical_bias="0.328" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -99,10 +100,10 @@
             android:layout_height="104dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.109"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.149"
             app:srcCompat="@mipmap/seatme_logo" />
 
 
