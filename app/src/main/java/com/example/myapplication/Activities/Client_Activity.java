@@ -2,11 +2,16 @@ package com.example.myapplication.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -50,6 +55,8 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
         myOrder = findViewById(R.id.order);
         logout = findViewById(R.id.logout);
         spinner_rest = findViewById(R.id.branch_sppiner);
+        Toolbar toolbar= findViewById(R.id.menu_bar1);
+        setSupportActionBar(toolbar);
 
 
         //spinner of resurant from DB
@@ -87,6 +94,41 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
     }
 
 
+    // create the 3 dots at login_register activity
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater= getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // click on some item un the menu bar
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(this, login_register.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.action_myOrders:
+                Intent intent1 = new Intent(this, diary_client.class);
+                startActivity(intent1);
+                break;
+
+
+            case R.id.action_backToMain:
+                Intent intent2 = new Intent(this, Client_Activity.class);
+                startActivity(intent2);
+                break;
+
+            default:
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onClick(View v) {

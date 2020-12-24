@@ -3,6 +3,7 @@ package com.example.myapplication.Activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
@@ -20,6 +21,9 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -37,7 +41,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
+import androidx.appcompat.widget.Toolbar;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -78,6 +82,8 @@ public class change_my_rest extends AppCompatActivity {
         change_menu_gal = findViewById(R.id.change_menu_gal);
         menu_Image = findViewById(R.id.imagemenu);
         take_photo = findViewById(R.id.take_photo);
+        Toolbar toolbar= findViewById(R.id.menu_bar);
+        setSupportActionBar(toolbar);
 
 
         //firebase
@@ -130,6 +136,42 @@ public class change_my_rest extends AppCompatActivity {
             }
         });
 
+    }
+
+    // create the 3 dots at login_register activity
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater= getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // click on some item un the menu bar
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(this, login_register.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.action_myOrders:
+                Intent intent1 = new Intent(this, rest_diary.class);
+                startActivity(intent1);
+                break;
+
+
+            case R.id.action_backToMain:
+                Intent intent2 = new Intent(this, activity_rest.class);
+                startActivity(intent2);
+                break;
+
+            default:
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void askCameraPermissions() {

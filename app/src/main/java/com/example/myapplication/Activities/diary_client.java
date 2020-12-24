@@ -5,12 +5,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.ListMenuItemView;
+import androidx.appcompat.widget.Toolbar;
+
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseBooleanArray;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -47,6 +51,8 @@ public class diary_client extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_client);
+        Toolbar toolbar= findViewById(R.id.menu_bar2);
+        setSupportActionBar(toolbar);
 
         fAuth= FirebaseAuth.getInstance();
         id_client=fAuth.getUid().toString();
@@ -119,6 +125,35 @@ public class diary_client extends AppCompatActivity {
                         .show();
             }
         });
+    }
+
+
+    // click on some item un the menu bar
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(this, login_register.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.action_myOrders:
+                Intent intent1 = new Intent(this, diary_client.class);
+                startActivity(intent1);
+                break;
+
+
+            case R.id.action_backToMain:
+                Intent intent2 = new Intent(this, Client_Activity.class);
+                startActivity(intent2);
+                break;
+
+            default:
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
