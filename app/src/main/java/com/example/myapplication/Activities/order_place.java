@@ -127,7 +127,7 @@ public class order_place extends AppCompatActivity implements View.OnClickListen
                 O.setOrder_id(Uid);
 
                 //checking if there is a place
-                DB_model.get_DB().getRef().child("Orders").child(id_Bus).addValueEventListener(new ValueEventListener() {
+                DB_model.get_DB().getRef().child("Business").child(id_Bus).child("Orders").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         int Count=0;

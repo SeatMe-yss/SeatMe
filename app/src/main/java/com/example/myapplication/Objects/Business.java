@@ -13,6 +13,7 @@ public class Business {
     public List<Order> Orders=new ArrayList<>();
     public int max_people;
     public String Menu_url;
+    public List<String> reviews=new ArrayList<>();
 
 
 
@@ -26,6 +27,7 @@ public class Business {
         this.name_rest=" ";
         this.id=id;
         this.Orders.add(new Order());
+        this.reviews.add(new String());
         this.Menu_url="";
 
     }
@@ -60,6 +62,10 @@ public class Business {
 
     public void addOrder(Order o){
         this.Orders.add(o);
+    }
+
+    public void addReview(String s){
+        this.reviews.add(s);
     }
 
     public int getmax_people(){ return this.max_people ;}

@@ -98,7 +98,8 @@ public class activity_rest extends AppCompatActivity implements View.OnClickList
 //
 //        }
         else if(v==review){
-
+            Intent intent = new Intent(this, review_bus.class);
+            startActivity(intent);
         }
         else if(v==diary){
             Intent intent = new Intent(this, rest_diary.class);

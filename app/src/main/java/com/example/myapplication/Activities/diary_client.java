@@ -47,6 +47,8 @@ public class diary_client extends AppCompatActivity {
     String id_client;
     FirebaseAuth fAuth;
     SharedPreferences sp;
+    String id_order;
+    String id_Bus;
 
 
     @Override
@@ -94,6 +96,10 @@ public class diary_client extends AppCompatActivity {
         });
 
 
+
+
+
+        //delete order
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -101,8 +107,7 @@ public class diary_client extends AppCompatActivity {
                 final int which_item = position;
 
                 String choise =(listView.getItemAtPosition(position).toString());
-                String id_order = find_id(choise);
-                String id_Bus = find_idBus(choise);
+                id_order = find_id(choise);
 
                 new AlertDialog.Builder(diary_client.this)
                         .setIcon(android.R.drawable.ic_delete)
@@ -114,7 +119,24 @@ public class diary_client extends AppCompatActivity {
                                 arrayList.remove(which_item);
                                 arrayAdapter.notifyDataSetChanged();
 
-                                System.out.println("id c:" + id_client + "\nid order:" + id_order + "\nid b:" + id_Bus);
+                                //to find id bus
+                                DB_model.get_DB().getRef().child("Clients").child(id_client).child("Orders").child(id_order).addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot ds : snapshot.getChildren()) {
+                                            id_Bus = ds.child("id_Bus").getValue(String.class);
+                                            System.out.println("id busss2: " + id_Bus);
+
+                                        }
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+
+                                });
+
+                               System.out.println("id c:" + id_client + "\nid order:" + id_order + "\nid b:" + id_Bus);
 
                                 DB_users.RemoveClientOrderFromDB(id_client,id_order);
                                 DB_Orders.RemoveOrderFromDB(id_Bus, id_order);
@@ -127,6 +149,7 @@ public class diary_client extends AppCompatActivity {
                         .show();
             }
         });
+
     }
 
 
@@ -178,7 +201,7 @@ public class diary_client extends AppCompatActivity {
             temp += choise.charAt(i);
             if (temp.contains("מספר הזמנה: ")) {
                 j = i+1;
-                while (!id_order.contains("מ")) {
+                while (j != choise.length()-1) {
                     id_order += choise.charAt(j);
                     j++;
 
@@ -192,24 +215,28 @@ public class diary_client extends AppCompatActivity {
     }
 
 
-    public static String find_idBus(String choise) {
-        String temp = "";
-        String id_order = "";
-        int j = 0;
 
-        for (int i = 0; i < choise.length(); i++) {
-            temp += choise.charAt(i);
-            if (temp.contains("מזהה מסעדה: ")) {
-                j = i+1;
-                while (j != choise.length()) {
-                    id_order += choise.charAt(j);
-                    j++;
-                }
-                return id_order;
-            }
-        }
 
-        return id_order;
 
-    }
+
+//    public static String find_idBus(String choise) {
+//        String temp = "";
+//        String id_order = "";
+//        int j = 0;
+//
+//        for (int i = 0; i < choise.length(); i++) {
+//            temp += choise.charAt(i);
+//            if (temp.contains("מזהה מסעדה: ")) {
+//                j = i+1;
+//                while (j != choise.length()) {
+//                    id_order += choise.charAt(j);
+//                    j++;
+//                }
+//                return id_order;
+//            }
+//        }
+//
+//        return id_order;
+//
+//    }
 }

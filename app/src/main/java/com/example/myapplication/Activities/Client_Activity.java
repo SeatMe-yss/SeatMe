@@ -170,6 +170,12 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
             startActivity(intent);
         }
 
+        else if(v==rank){//just checking
+            Intent intent= new Intent(this, review_client.class );
+            startActivity(intent);
+        }
+
+
 
     }
 
