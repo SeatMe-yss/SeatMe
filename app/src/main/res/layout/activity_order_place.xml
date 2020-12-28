@@ -31,46 +31,43 @@
         android:datePickerMode="spinner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintVertical_bias="0.392" />
 
     <EditText
         android:id="@+id/order_meal"
-        android:layout_width="367dp"
-        android:layout_height="50dp"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
         android:layout_marginTop="23dp"
         android:background="@color/white"
-        android:hint="   הזן את הזמנתך מראש"
+        android:hint="  הזן את הזמנתך מראש"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653"
+        app:layout_constraintVertical_bias="0.727"
         tools:visibility="visible" />
 
     <EditText
         android:id="@+id/order_meal2"
-        android:layout_width="367dp"
-        android:layout_height="50dp"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
         android:background="@color/white"
-        android:hint="   כמה תהיו?"
+        android:hint="  כמה תהיו?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785"
+        app:layout_constraintVertical_bias="0.848"
         tools:visibility="visible" />
 
     <Spinner
         android:id="@+id/spinnertime"
-        android:layout_width="367dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
         android:layout_marginTop="41dp"
         android:background="@color/white"
         android:textColor="@color/black"
@@ -78,10 +75,10 @@
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.523"
+        app:layout_constraintVertical_bias="0.593"
         tools:visibility="visible" />
 
     <ImageView
@@ -90,10 +87,10 @@
         android:layout_height="104dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintHorizontal_bias="0.014"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092"
+        app:layout_constraintVertical_bias="0.125"
         app:srcCompat="@mipmap/seatme_logo" />
 
     <Button
@@ -107,10 +104,10 @@
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/order_meal"
-        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintHorizontal_bias="0.294"
         app:layout_constraintStart_toStartOf="@+id/order_meal"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.891" />
+        app:layout_constraintVertical_bias="0.952" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

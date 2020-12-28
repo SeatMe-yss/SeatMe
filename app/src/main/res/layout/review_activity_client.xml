@@ -44,7 +44,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.119"
+            app:layout_constraintVertical_bias="0.142"
             app:srcCompat="@mipmap/seatme_logo" />
 
         <Button
@@ -52,12 +52,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
-            android:text="שמור"
+            android:text="הוסף ביקורת"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.664" />
+            app:layout_constraintVertical_bias="0.682" />
 
         <RatingBar
             android:id="@+id/ratingBar"
@@ -66,24 +67,26 @@
             android:background="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.559" />
+            app:layout_constraintVertical_bias="0.533" />
 
         <EditText
             android:id="@+id/review"
-            android:layout_width="240dp"
-            android:layout_height="70dp"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
             android:background="#FFFFFF"
             android:ems="10"
-            android:hint="כתוב ביקורת"
+            android:hint=" כתוב ביקורת"
             android:inputType="textPersonName"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.454" />
+            app:layout_constraintVertical_bias="0.377" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
