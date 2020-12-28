@@ -18,6 +18,13 @@
         <item>16:00-18:00</item>
         <item>18:00-20:00</item>
     </string-array>
+    <string-array name="spinner_review">
+        <item> בחר מסעדה</item>
+        <item> BBB</item>
+        <item>japanika</item>
+        <item>humangos</item>
+        <item>kisu</item>
+    </string-array>
 
 
     <string name="app_name">My Application</string>

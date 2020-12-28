@@ -49,6 +49,7 @@ public class diary_client extends AppCompatActivity {
     SharedPreferences sp;
     String id_order;
     String id_Bus;
+    Boolean b;
 
 
     @Override
@@ -98,16 +99,33 @@ public class diary_client extends AppCompatActivity {
 
 
 
-
         //delete order
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final int which_item = position;
-
                 String choise =(listView.getItemAtPosition(position).toString());
                 id_order = find_id(choise);
+
+                //to find id bus
+                DB_model.get_DB().getRef().child("Clients").child(id_client).child("Orders").child(id_order).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        System.out.println("id c:" + id_client + "\nid order:" + id_order);
+                        id_Bus = snapshot.child("id_Bus").getValue(String.class);
+                        System.out.println("id busss2: " + id_Bus);
+
+//                        for (DataSnapshot ds : snapshot.getChildren()) {
+//                                id_Bus = ds.child("rest_name").getValue(String.class);
+//                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+
+                });
 
                 new AlertDialog.Builder(diary_client.this)
                         .setIcon(android.R.drawable.ic_delete)
@@ -119,24 +137,7 @@ public class diary_client extends AppCompatActivity {
                                 arrayList.remove(which_item);
                                 arrayAdapter.notifyDataSetChanged();
 
-                                //to find id bus
-                                DB_model.get_DB().getRef().child("Clients").child(id_client).child("Orders").child(id_order).addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        for (DataSnapshot ds : snapshot.getChildren()) {
-                                            id_Bus = ds.child("id_Bus").getValue(String.class);
-                                            System.out.println("id busss2: " + id_Bus);
-
-                                        }
-                                    }
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-
-                                });
-
-                               System.out.println("id c:" + id_client + "\nid order:" + id_order + "\nid b:" + id_Bus);
+                               //System.out.println("id c:" + id_client + "\nid order:" + id_order + "\nid b:" + id_Bus);
 
                                 DB_users.RemoveClientOrderFromDB(id_client,id_order);
                                 DB_Orders.RemoveOrderFromDB(id_Bus, id_order);
@@ -148,7 +149,9 @@ public class diary_client extends AppCompatActivity {
                         .setNegativeButton("No", null)
                         .show();
             }
+
         });
+
 
     }
 
@@ -201,12 +204,11 @@ public class diary_client extends AppCompatActivity {
             temp += choise.charAt(i);
             if (temp.contains("מספר הזמנה: ")) {
                 j = i+1;
-                while (j != choise.length()-1) {
+                while (j < choise.length()) {
                     id_order += choise.charAt(j);
                     j++;
 
                 }
-                id_order = id_order.substring(0, id_order.length()-2);
                 return id_order;
             }
         }

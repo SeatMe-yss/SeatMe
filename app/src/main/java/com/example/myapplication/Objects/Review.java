@@ -2,7 +2,7 @@ package com.example.myapplication.Objects;
 
 public class Review {
     String review_message;
-    int numStars;
+    float numStars;
     static String review_id;
 
 
@@ -14,11 +14,11 @@ public class Review {
         this.review_message = review_message;
     }
 
-    public int getNumStars() {
+    public float getNumStars() {
         return this.numStars;
     }
 
-    public void setNumStars(int numStars) {
+    public void setNumStars(float numStars) {
         this.numStars = numStars;
     }
 
@@ -32,7 +32,7 @@ public class Review {
 
 
     public Review(){}
-    public Review( String review_message, int numStars) {
+    public Review( String review_message, float numStars) {
         this.review_message = review_message;
         this.numStars = numStars;
     }

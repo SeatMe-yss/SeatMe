@@ -97,6 +97,8 @@ package com.example.myapplication.Objects;
 
      public void setPeople(int people) { this.people = people; }
 
+
+
      @Override
      public String toString() {
          return "שם המסעדה :" + getRest_name()+

@@ -170,9 +170,25 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
             startActivity(intent);
         }
 
-        else if(v==rank){//just checking
-            Intent intent= new Intent(this, review_client.class );
-            startActivity(intent);
+        else if(v==rank){
+            int t=spinner_rest.getSelectedItemPosition();
+            r= (String)spinner_rest.getAdapter().getItem(t);
+
+            //pass the restaurant name to the next activity
+            if(r.equals("בחר מסעדה")){
+                ((TextView)spinner_rest.getSelectedView()).setError("בחר מסעדה");
+
+            }
+            else{//passing the resturant name
+                SharedPreferences.Editor editor=sp.edit();
+                editor.putString("restaurant name", r);
+                editor.apply();
+
+                //starting the new activity
+                Intent intent= new Intent(this, review_client.class );
+                startActivity(intent);
+            }
+
         }
 
 

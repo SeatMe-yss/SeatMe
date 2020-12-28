@@ -99,6 +99,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                                         for(DataSnapshot s: snapshot.getChildren()){
+                                            System.out.println("user_id: " + user_id + "\ntype: " + type + "id2: " + s.child("id").getValue());
                                             if(s.child("id").getValue().equals(user_id) && type.equals("לקוח")){
 //                                                isC1=true;
                                                 startActivity(new Intent(getApplicationContext(), Client_Activity.class));
