@@ -13,7 +13,7 @@
 
 
     <include
-        android:id="@+id/menu_bar6"
+        android:id="@+id/menu_bar7"
         layout="@layout/menu_bar"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
         app:layout_constraintEnd_toEndOf="parent"

@@ -43,7 +43,7 @@ public class review_bus extends AppCompatActivity {
 
         fauth= FirebaseAuth.getInstance();
         id_buss=fauth.getUid().toString();
-        Toolbar toolbar= findViewById(R.id.menu_bar6);
+        Toolbar toolbar= findViewById(R.id.menu_bar7);
         setSupportActionBar(toolbar);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Business").child(id_buss).child("Reviews");
