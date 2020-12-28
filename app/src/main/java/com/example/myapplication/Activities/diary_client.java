@@ -129,9 +129,9 @@ public class diary_client extends AppCompatActivity {
 
                 new AlertDialog.Builder(diary_client.this)
                         .setIcon(android.R.drawable.ic_delete)
-                        .setTitle("Are you sure?")
-                        .setMessage("Do you want to delete this item?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        .setTitle("שים לב")
+                        .setMessage("האם את/ה בטוח/ה שברצונך/ה לבטל את התור?")
+                        .setPositiveButton("כן", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 arrayList.remove(which_item);
@@ -146,7 +146,7 @@ public class diary_client extends AppCompatActivity {
                             }
                         })
 
-                        .setNegativeButton("No", null)
+                        .setNegativeButton("לא", null)
                         .show();
             }
 
