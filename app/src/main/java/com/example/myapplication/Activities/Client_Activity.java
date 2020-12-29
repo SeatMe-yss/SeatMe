@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -40,6 +41,7 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
     Spinner spinner_rest;
     SharedPreferences sp;
     List<String> restaurants;
+    List<Boolean> MENU;
     public static final String SHARED_PRE = "sharedPrefs";
     String r;
 
@@ -61,6 +63,7 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
 
         //spinner of resurant from DB
         restaurants = new ArrayList<String>();
+        MENU=new ArrayList<Boolean>();
 
         //initlized the resturants spinner by DB
         DB_model.get_DB().getRef().child("Business").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -68,6 +71,12 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     restaurants.add(ds.child("name_rest").getValue(String.class));
+                    if(ds.child("Menu_url").getValue(String.class).equals("")){
+                        MENU.add(true);
+                    }else{
+                        MENU.add(false);
+
+                    }
                 }
                 ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(Client_Activity.this, android.R.layout.simple_spinner_dropdown_item, restaurants);
                 spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
@@ -165,9 +174,24 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
 
         }
 
-        else if(v==menu){//just checking
-            Intent intent= new Intent(this, menue_client.class );
-            startActivity(intent);
+        else if(v==menu){
+            //check if the restaurant has menu
+                System.out.println("menu -> "+MENU.get(spinner_rest.getSelectedItemPosition()));
+                if(MENU.get(spinner_rest.getSelectedItemPosition())){
+//                    ((TextView)spinner_rest.getSelectedView()).setError("למסעדה שבחרת אין תפריט");
+                    TextView errorText = (TextView)spinner_rest.getSelectedView();
+                    errorText.setError("למסעדה שבחרת אין תפריט");
+                    errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                    errorText.setText("למסעדה שבחרת אין תפריט");//changes the selected item text to this
+
+                }
+                else{
+                    Intent intent= new Intent(this, menue_client.class );
+                    startActivity(intent);
+
+                }
+
+
         }
 
         else if(v==rank){

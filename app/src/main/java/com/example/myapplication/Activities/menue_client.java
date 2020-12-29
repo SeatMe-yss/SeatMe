@@ -103,7 +103,6 @@ public class menue_client extends AppCompatActivity {
                     }
                 }
                 String link= snapshot.child(id_Bus).child("Menu_url").getValue(String.class);
-                System.out.println("link: "+link);
                 Picasso.get().load(link).into(menu_photo);
 
             }

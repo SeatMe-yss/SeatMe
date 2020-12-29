@@ -1,6 +1,7 @@
 package com.example.myapplication.Activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -35,11 +36,11 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
     Spinner spinner_type;
     String[] types;
     FirebaseAuth fAuth;
-    boolean isC1=false;
-
+    boolean issomething=false;
 
 
     protected void onCreate(Bundle savedInstanceState) {
+        issomething=false;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
@@ -67,7 +68,6 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
             @Override
             public void onClick(View v) {
 
-
                 String user_mail = mail.getText().toString();
                 String user_password = password.getText().toString();
 
@@ -89,6 +89,8 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
                     fAuth.signInWithEmailAndPassword(user_mail, user_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            issomething=false;
+
                             if (task.isSuccessful()) {
                                 String user_id=fAuth.getUid();
                                 // DB_users.isClient(user_id);
@@ -99,19 +101,18 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                                         for(DataSnapshot s: snapshot.getChildren()){
-                                            System.out.println("user_id: " + user_id + "\ntype: " + type + "id2: " + s.child("id").getValue());
                                             if(s.child("id").getValue().equals(user_id) && type.equals("לקוח")){
-//                                                isC1=true;
+                                                issomething=true;
                                                 startActivity(new Intent(getApplicationContext(), Client_Activity.class));
                                             }
 
                                         }
 
-
                                     }
 
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
+                                        ((TextView)spinner_type.getSelectedView()).setError("המשתמש שנבחר אינו מתאים");
 
                                     }
                                 });
@@ -124,23 +125,30 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
 
                                         for(DataSnapshot s: snapshot.getChildren()){
                                             if(s.child("id").getValue().equals(user_id) && type.equals("בית עסק")){
+                                                issomething=true;
                                                 startActivity(new Intent(getApplicationContext(), activity_rest.class));
                                             }
 
                                         }
 
+                                        if (!issomething){
+                                            TextView errorText = (TextView)spinner_type.getSelectedView();
+                                            errorText.setError("המשתמש שנבחר אינו מתאים");
+                                            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                                            errorText.setText("המשתמש שנבחר אינו מתאים");//changes the selected item text to this
+
+
+                                        }
 
                                     }
-
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
 
                                     }
                                 });
 
-//                                    ((TextView)spinner_type.getSelectedView()).setError("המשתמש שנבחר אינו מתאים");
-
                             } else {
+
                                 mail.setError("המייל או הסיסמה אינם תקינים");
                                 password.setError("המייל או הסיסמה אינם תקינים");
 
@@ -152,7 +160,9 @@ public class login extends AppCompatActivity implements View.OnClickListener, Ad
             }
 
 
+
         });
+
 
     }
 
