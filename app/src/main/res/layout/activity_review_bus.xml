@@ -38,11 +38,11 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="135dp"
-        android:layout_height="31dp"
-        android:background="#FFFFFF"
+        android:layout_width="142dp"
+        android:layout_height="39dp"
+        android:fontFamily="casual"
         android:text="הביקורות שלי"
-        android:textColor="@color/black"
+        android:textColor="#FFFFFF"
         android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
