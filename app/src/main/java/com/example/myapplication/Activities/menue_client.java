@@ -32,6 +32,8 @@ public class menue_client extends AppCompatActivity {
     private DatabaseReference first=databaseReference.child("Business");
     SharedPreferences sp;
     String id_Bus;
+    String Rest_name;
+
 
 
     @Override
@@ -41,6 +43,11 @@ public class menue_client extends AppCompatActivity {
         menu_photo=findViewById(R.id.menu_rest);
         Toolbar toolbar= findViewById(R.id.menu_bar3);
         setSupportActionBar(toolbar);
+
+        sp=getSharedPreferences("restaurant name", Context.MODE_PRIVATE);
+
+
+        Rest_name = sp.getString("restaurant name", "");
 
     }
 
@@ -88,21 +95,26 @@ public class menue_client extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         //getting id of resturant
-        sp=getSharedPreferences("restaurant name", Context.MODE_PRIVATE);
-        String Rest_name = sp.getString("restaurant name", "");
+
+//        System.out.println("sp="+Rest_name);
 
         DB_model.get_DB().getRef().child("Business").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     String a = ds.child("name_rest").getValue(String.class);
+//                    System.out.println("name_rest: "+(Rest_name));
+//                    System.out.println("name_rest: "+a.equals(Rest_name));
                     if (ds.child("name_rest").getValue(String.class).equals(Rest_name)) {
                         id_Bus = ds.child("id").getValue(String.class);
-
-
                     }
                 }
+//                System.out.println("id_bus: "+id_Bus);
                 String link= snapshot.child(id_Bus).child("Menu_url").getValue(String.class);
+                System.out.println("link: "+link);
+//                link=link.substring(0,link.length()-4);
+//                System.out.println("link after substring:"+link);
                 Picasso.get().load(link).into(menu_photo);
 
             }

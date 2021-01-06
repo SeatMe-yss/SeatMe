@@ -215,7 +215,10 @@ public class change_my_rest extends AppCompatActivity {
 
 //                System.out.println("id :"+fAuth.getUid());
                 //save the string in real db menu
+                System.out.println("Menu_url:"+Uri.fromFile(f).toString());
                 DB_model.get_DB().getRef().child("Business").child(fAuth.getUid()).child("Menu_url").setValue(Uri.fromFile(f).toString());
+
+
 
 
                 Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
@@ -236,7 +239,7 @@ public class change_my_rest extends AppCompatActivity {
                 String imageFileName = fAuth.getUid();
                 Log.d("tag", "onActivityResult: Gallery Image Uri:  " + imageFileName);
                 menu_Image.setImageURI(contentUri);
-
+                System.out.println("imageFileName:"+imageFileName);
                 uploadImageToFirebase(imageFileName, contentUri);
 
 
@@ -248,6 +251,7 @@ public class change_my_rest extends AppCompatActivity {
     }
 
     private void uploadImageToFirebase(String name, Uri contentUri) {
+        System.out.println("name:"+name);
         final StorageReference image = storageReference.child("pictures/" + name);
         image.putFile(contentUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -255,6 +259,8 @@ public class change_my_rest extends AppCompatActivity {
                 image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        DB_model.get_DB().getRef().child("Business").child(fAuth.getUid()).child("Menu_url").setValue(uri.toString());
+
                         Log.d("tag", "onSuccess: Uploaded Image URl is " + uri.toString());
                     }
                 });
@@ -301,24 +307,24 @@ public class change_my_rest extends AppCompatActivity {
         // Ensure that there's a camera activity to handle the intent
 
 //        if (takePictureIntent.resolveActivity(getPackageManager()) == null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
+        // Create the File where the photo should go
+        File photoFile = null;
+        try {
+            photoFile = createImageFile();
+        } catch (IOException ex) {
 
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.example.android.fileprovider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
-            }
-            else{
+        }
+        // Continue only if the File was successfully created
+        if (photoFile != null) {
+            Uri photoURI = FileProvider.getUriForFile(this,
+                    "com.example.android.fileprovider",
+                    photoFile);
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+            startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
+        }
+        else{
 
-            }
         }
     }
+}
 //}

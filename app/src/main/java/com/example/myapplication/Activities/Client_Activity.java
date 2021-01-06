@@ -175,8 +175,11 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
         }
 
         else if(v==menu){
+
+            r= (String)spinner_rest.getAdapter().getItem(spinner_rest.getSelectedItemPosition());
             //check if the restaurant has menu
-                System.out.println("menu -> "+MENU.get(spinner_rest.getSelectedItemPosition()));
+
+            System.out.println("menu -> "+MENU.get(spinner_rest.getSelectedItemPosition()));
                 if(MENU.get(spinner_rest.getSelectedItemPosition())){
 //                    ((TextView)spinner_rest.getSelectedView()).setError("למסעדה שבחרת אין תפריט");
                     TextView errorText = (TextView)spinner_rest.getSelectedView();
@@ -186,6 +189,11 @@ public class Client_Activity extends AppCompatActivity implements View.OnClickLi
 
                 }
                 else{
+                    //update sp
+                    SharedPreferences.Editor editor=sp.edit();
+                    editor.putString("restaurant name", r);
+                    editor.apply();
+
                     Intent intent= new Intent(this, menue_client.class );
                     startActivity(intent);
 
